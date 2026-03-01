@@ -20,9 +20,14 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: 'Cloud Solutions Engineering Bootcamp | معسكر هندسة الحلول السحابية',
+  title: 'Cloud Solutions Engineering Bootcamp | موقع معسكر سحابيا',
   description: 'AWS + Google Cloud bootcamp at Tuwaiq Academy, Saudi Arabia. Explore cloud infrastructure, services, and hands-on labs.',
   keywords: ['AWS', 'Google Cloud', 'GCP', 'bootcamp', 'cloud computing', 'Saudi Arabia', 'Tuwaiq Academy'],
+  icons: {
+    icon: '/websitelogo.svg',
+    shortcut: '/websitelogo.svg',
+    apple: '/websitelogo.svg',
+  },
   openGraph: {
     title: 'Cloud Solutions Engineering Bootcamp',
     description: 'AWS + Google Cloud bootcamp at Tuwaiq Academy',
