@@ -123,6 +123,16 @@ export default function Header() {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
+            {/* Logo Image - Desktop (first in EN, last in AR due to RTL) */}
+            <img
+              src="/Thisisthelogo.png"
+              alt="Logo"
+              className="hidden md:block h-16 w-auto"
+            />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Language Toggle */}
             <button
               onClick={toggleLocale}
@@ -131,16 +141,6 @@ export default function Header() {
             >
               {locale === 'en' ? 'AR' : 'EN'}
             </button>
-
-            {/* Theme Toggle */}
-            <ThemeToggle />
-
-            {/* Logo Image - Desktop */}
-            <img
-              src="/Thisisthelogo.png"
-              alt="Logo"
-              className="hidden md:block h-14 w-auto"
-            />
 
             {/* Mobile menu button */}
             <button
