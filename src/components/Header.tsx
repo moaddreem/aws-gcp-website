@@ -135,16 +135,12 @@ export default function Header() {
             {/* Theme Toggle */}
             <ThemeToggle />
 
-            {/* CTA Button - Desktop */}
-            <Link
-              href="/map"
-              className="hidden md:inline-flex btn-primary text-sm px-5 py-2.5"
-            >
-              {t('explore')}
-              <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            {/* Logo Image - Desktop */}
+            <img
+              src="/Thisisthelogo.png"
+              alt="Logo"
+              className="hidden md:block h-10 w-auto"
+            />
 
             {/* Mobile menu button */}
             <button
