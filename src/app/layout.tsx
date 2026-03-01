@@ -24,11 +24,9 @@ export const metadata: Metadata = {
   description: 'AWS + Google Cloud bootcamp at Tuwaiq Academy, Saudi Arabia. Explore cloud infrastructure, services, and hands-on labs.',
   keywords: ['AWS', 'Google Cloud', 'GCP', 'bootcamp', 'cloud computing', 'Saudi Arabia', 'Tuwaiq Academy'],
   icons: {
-    icon: [
-      { url: '/websitelogo.svg', type: 'image/svg+xml' },
-    ],
-    shortcut: '/websitelogo.svg',
-    apple: '/websitelogo.svg',
+    icon: '/Thisisthelogo.png',
+    shortcut: '/Thisisthelogo.png',
+    apple: '/Thisisthelogo.png',
   },
   openGraph: {
     title: 'Cloud Solutions Engineering Bootcamp',
