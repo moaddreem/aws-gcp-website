@@ -132,15 +132,15 @@ export default function Header() {
               {locale === 'en' ? 'AR' : 'EN'}
             </button>
 
-            {/* Theme Toggle */}
-            <ThemeToggle />
-
             {/* Logo Image - Desktop */}
             <img
               src="/Thisisthelogo.png"
               alt="Logo"
-              className="hidden md:block h-10 w-auto"
+              className="hidden md:block h-14 w-auto"
             />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Mobile menu button */}
             <button
