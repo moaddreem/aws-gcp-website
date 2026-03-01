@@ -164,74 +164,79 @@ export default function Header() {
 
       </div>
 
-      {/* Mobile Navigation - Full Screen Overlay */}
+      {/* Mobile Navigation Modal */}
       {mobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 z-[100]"
-          style={{ background: 'var(--bg-primary)' }}
-        >
-          {/* Header with close button */}
-          <div className="flex items-center justify-between h-20 px-4">
-            <Link href="/" className="flex items-center gap-3" onClick={closeMobileMenu}>
-              <Image
-                src="/logo-noname.png"
-                alt="Tuwaiq Academy"
-                width={48}
-                height={48}
-                className="w-12 h-12"
-              />
-            </Link>
+        <div className="md:hidden fixed inset-0 z-[100] flex items-center justify-center">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60"
+            onClick={closeMobileMenu}
+          />
+          
+          {/* Centered Modal Card */}
+          <div 
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            className="relative w-[90vw] max-w-[380px] max-h-[70vh] overflow-y-auto rounded-2xl p-6"
+            style={{ 
+              background: 'var(--bg-primary)',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)'
+            }}
+          >
+            {/* Close Button */}
             <button
               onClick={closeMobileMenu}
-              className="p-2 rounded-lg transition-colors"
-              style={{ color: 'var(--text-secondary)' }}
+              className="absolute top-4 start-4 w-9 h-9 flex items-center justify-center rounded-full transition-colors"
+              style={{ 
+                background: 'var(--bg-secondary)',
+                color: 'var(--text-secondary)' 
+              }}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-          </div>
-          
-          {/* Nav Items */}
-          <nav 
-            className="flex flex-col px-6 pt-8"
-            dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          >
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="py-4 text-xl font-medium transition-colors border-b"
-                  style={{ 
-                    color: isActive ? 'var(--aws)' : 'var(--text-primary)',
-                    borderColor: 'var(--border-subtle)'
-                  }}
-                  onClick={closeMobileMenu}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-            
-            {/* Language Toggle */}
-            <div className="mt-8 flex justify-center">
-              <button
-                onClick={() => {
-                  closeMobileMenu();
-                  toggleLocale();
-                }}
-                className="text-base font-medium px-6 py-3 rounded-full transition-colors"
-                style={{ 
-                  color: 'var(--text-primary)',
-                  background: 'var(--bg-secondary)'
-                }}
+
+            {/* Nav Items */}
+            <nav className="flex flex-col mt-12 space-y-1">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="py-3 px-4 text-lg font-medium rounded-xl transition-colors"
+                    style={{ 
+                      color: isActive ? 'var(--aws)' : 'var(--text-primary)',
+                      background: isActive ? 'var(--bg-secondary)' : 'transparent'
+                    }}
+                    onClick={closeMobileMenu}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              
+              {/* Language Toggle in Modal */}
+              <div 
+                className="mt-6 pt-6 flex justify-center"
+                style={{ borderTop: '1px solid var(--border-subtle)' }}
               >
-                {locale === 'en' ? 'العربية' : 'English'}
-              </button>
-            </div>
-          </nav>
+                <button
+                  onClick={() => {
+                    closeMobileMenu();
+                    toggleLocale();
+                  }}
+                  className="text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
+                  style={{ 
+                    color: 'var(--text-primary)',
+                    background: 'var(--bg-secondary)'
+                  }}
+                >
+                  {locale === 'en' ? 'العربية' : 'English'}
+                </button>
+              </div>
+            </nav>
+          </div>
         </div>
       )}
     </header>
