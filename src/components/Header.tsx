@@ -70,6 +70,7 @@ export default function Header() {
   ];
 
   return (
+    <>
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? 'backdrop-blur-xl' : ''
@@ -164,20 +165,50 @@ export default function Header() {
 
       </div>
 
-      {/* Mobile Navigation Modal */}
+    </header>
+
+      {/* Mobile Navigation Modal - Outside header for proper fixed positioning */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[100] flex items-center justify-center">
+        <div 
+          className="md:hidden"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
           {/* Backdrop */}
           <div 
-            className="absolute inset-0 bg-black/60"
+            style={{ 
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.6)'
+            }}
             onClick={closeMobileMenu}
           />
           
           {/* Centered Modal Card */}
           <div 
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
-            className="relative w-[90vw] max-w-[380px] max-h-[70vh] overflow-y-auto rounded-2xl p-6"
             style={{ 
+              position: 'relative',
+              width: '90vw',
+              maxWidth: '380px',
+              maxHeight: 'calc(100vh - 48px)',
+              overflowY: 'auto',
+              borderRadius: '16px',
+              padding: '24px',
               background: 'var(--bg-primary)',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)'
             }}
@@ -239,6 +270,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
