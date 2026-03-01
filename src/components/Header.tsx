@@ -83,16 +83,14 @@ export default function Header() {
       <div className="section-container">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/logo-noname.png"
-              alt="Tuwaiq Academy"
-              width={48}
-              height={48}
-              className="w-12 h-12"
+          <Link href="/" className="flex items-center gap-2.5">
+            <img
+              src="/websitelogo.svg"
+              alt="Muath Cloud Website"
+              className="h-8 w-auto"
             />
-            <span className="font-bold text-xl hidden sm:block" style={{ color: 'var(--text-primary)' }}>
-              {locale === 'ar' ? 'أكاديمية طويق' : 'Tuwaiq Academy'}
+            <span className="font-bold text-lg hidden sm:block" style={{ color: 'var(--text-primary)' }}>
+              Muath Cloud Website
             </span>
           </Link>
 
