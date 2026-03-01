@@ -196,7 +196,7 @@ export default function ServicesPage() {
         {!selectedCategory ? (
           <>
             {/* Categories Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12">
               {categories.map((category) => (
                 <button
                   key={category.id}
