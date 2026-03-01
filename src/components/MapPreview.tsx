@@ -28,8 +28,10 @@ export default function MapPreview() {
     map.current.addControl(new maplibregl.NavigationControl(), 'top-right');
 
     map.current.on('load', () => {
-      locations.locations.forEach((location) => {
-        const color = location.provider === 'aws' ? '#FF9900' : '#4285F4';
+      locations.features.forEach((feature) => {
+        const props = feature.properties;
+        const coords = feature.geometry.coordinates;
+        const color = props.provider === 'aws' ? '#FF9900' : '#4285F4';
         
         const el = document.createElement('div');
         el.className = 'marker';
@@ -41,7 +43,7 @@ export default function MapPreview() {
         el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
 
         new maplibregl.Marker({ element: el })
-          .setLngLat([location.lon, location.lat])
+          .setLngLat([coords[0], coords[1]])
           .addTo(map.current!);
       });
     });
