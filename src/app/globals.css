@@ -1,0 +1,348 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Header height for inner page spacing */
+    --header-h: 64px;
+    
+    /* Brand colors */
+    --aws: #FF9900;
+    --gcp: #4285F4;
+    
+    /* Light theme - darker for better contrast */
+    --bg-primary: #D0D4DD;
+    --bg-primary-rgb: 208, 212, 221;
+    --bg-secondary: #C6CAD4;
+    --bg-card: #E2E5EB;
+    --bg-item: #D8DCE4;
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --text-primary: #080D18;
+    --text-secondary: #2D3848;
+    --text-muted: #5A6678;
+    --border-color: #C8CFD9;
+    --border-subtle: #D5DAE3;
+    
+    /* Dome Colors - Light Mode (transparent base, only glows visible) */
+    --dome-bg: transparent;
+    --dome-blue: rgba(66, 133, 244, 0.30);
+    --dome-orange: rgba(255, 153, 0, 0.25);
+    --dome-center: rgba(66, 133, 244, 0.18);
+    --dome-rim: rgba(66, 133, 244, 0.25);
+    --dome-rim-soft: rgba(255, 153, 0, 0.18);
+    
+    /* Vignette for light mode */
+    --vignette-color: rgba(11, 18, 32, 0.06);
+    
+    /* Map panel - light mode uses regular card styles */
+    --bg-map-panel: #E2E5EB;
+    --bg-map-chip: #D8DCE4;
+    --bg-map-chip-hover: #CDD1DA;
+    --border-map-panel: rgba(0, 0, 0, 0.08);
+    --shadow-map-panel: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .dark {
+    /* Dark theme - layered surfaces, slightly lighter for open feel */
+    --bg-primary: #0C1220;
+    --bg-primary-rgb: 12, 18, 32;
+    --bg-secondary: rgba(255, 255, 255, 0.06);
+    --bg-card: rgba(255, 255, 255, 0.08);
+    --bg-item: rgba(255, 255, 255, 0.11);
+    --text-primary: #FFFFFF;
+    --text-secondary: #E8ECF2;
+    --text-muted: #A0AABB;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+    
+    /* Map panel - higher opacity for readability over map */
+    --bg-map-panel: rgba(10, 15, 24, 0.92);
+    --bg-map-chip: rgba(255, 255, 255, 0.08);
+    --bg-map-chip-hover: rgba(255, 255, 255, 0.12);
+    --border-map-panel: rgba(255, 255, 255, 0.12);
+    --shadow-map-panel: 0 10px 30px rgba(0, 0, 0, 0.4);
+    
+    /* Dome Colors - Dark Mode (transparent base, only glows visible) */
+    --dome-bg: transparent;
+    --dome-blue: rgba(66, 133, 244, 0.45);
+    --dome-orange: rgba(255, 153, 0, 0.38);
+    --dome-center: rgba(66, 133, 244, 0.28);
+    --dome-rim: rgba(66, 133, 244, 0.40);
+    --dome-rim-soft: rgba(255, 153, 0, 0.25);
+    
+    /* Stronger vignette for dark mode */
+    --vignette-color: rgba(0, 0, 0, 0.55);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[dir="rtl"] body {
+    font-family: var(--font-ibm-arabic), 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* ========================================
+     BUTTONS - Reference style
+     Clean solid pill + subtle shadow
+     ======================================== */
+  
+  /* Primary CTA - Solid pill with subtle glow */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white;
+    @apply transition-all duration-200 ease-out;
+    background: var(--gcp);
+    box-shadow: 0 4px 12px 0 rgba(66, 133, 244, 0.30);
+  }
+  .btn-primary:hover {
+    background: #3B78E7;
+    box-shadow: 0 6px 16px 0 rgba(66, 133, 244, 0.40);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px 0 rgba(66, 133, 244, 0.30);
+  }
+
+  /* Secondary - Ghost/outlined pill */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold;
+    @apply transition-all duration-200 ease-out;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  .btn-secondary:hover {
+    background: var(--bg-secondary);
+    border-color: var(--text-muted);
+  }
+
+  /* Text link button style */
+  .btn-link {
+    @apply inline-flex items-center gap-2 px-4 py-2 font-medium rounded-full;
+    @apply transition-all duration-200;
+    color: var(--text-secondary);
+  }
+  .btn-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+  }
+
+  /* ========================================
+     PILL BADGE
+     ======================================== */
+  .pill-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* ========================================
+     CARDS
+     ======================================== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    @apply rounded-2xl p-6 transition-all duration-200;
+  }
+  
+  .dark .card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-card);
+  }
+  .dark .card-hover:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Active card state for dark mode */
+  .dark .card.ring-2 {
+    box-shadow: 0 0 20px rgba(66, 133, 244, 0.25);
+  }
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  .section-container {
+    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--aws) 0%, var(--gcp) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* Animate on scroll */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-5;
+    @apply transition-all duration-700 ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* MapLibre styles */
+.maplibregl-popup-content {
+  background-color: var(--color-light-card);
+  border: 1px solid var(--color-light-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.dark .maplibregl-popup-content {
+  background-color: var(--color-dark-card);
+  border-color: var(--color-dark-border);
+}
+
+.maplibregl-popup-close-button {
+  color: #6b7280;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+.maplibregl-popup-close-button:hover {
+  color: #374151;
+}
+.dark .maplibregl-popup-close-button {
+  color: #9ca3af;
+}
+.dark .maplibregl-popup-close-button:hover {
+  color: #e5e7eb;
+}
+
+/* Custom scrollbar - Light Mode */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+  background-clip: content-box;
+}
+
+/* Custom scrollbar - Dark Mode */
+html.dark {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+  background-clip: content-box;
+}
+
+/* Accordion animation */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content > div {
+  overflow: hidden;
+}
+
+.animate-progress {
+  animation: progress-fill 1s ease-out;
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Category detail view animation */
+.animate-in {
+  animation: slideInFade 0.3s ease-out forwards;
+}
+
+.animate-out {
+  animation: slideOutFade 0.25s ease-in forwards;
+}
+
+@keyframes slideInFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutFade {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}

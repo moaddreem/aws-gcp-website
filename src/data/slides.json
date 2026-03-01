@@ -1,0 +1,60 @@
+{
+  "slides": [
+    {
+      "id": "slide-1",
+      "title_en": "Introduction to Cloud Computing",
+      "title_ar": "مقدمة في الحوسبة السحابية",
+      "url": "#",
+      "week": 1
+    },
+    {
+      "id": "slide-2",
+      "title_en": "AWS Core Services Overview",
+      "title_ar": "نظرة عامة على خدمات AWS الأساسية",
+      "url": "#",
+      "week": 1
+    },
+    {
+      "id": "slide-3",
+      "title_en": "Google Cloud Platform Fundamentals",
+      "title_ar": "أساسيات منصة Google Cloud",
+      "url": "#",
+      "week": 2
+    },
+    {
+      "id": "slide-4",
+      "title_en": "Compute Services: EC2 vs Compute Engine",
+      "title_ar": "خدمات الحوسبة: EC2 مقابل Compute Engine",
+      "url": "#",
+      "week": 2
+    },
+    {
+      "id": "slide-5",
+      "title_en": "Storage Solutions: S3 vs Cloud Storage",
+      "title_ar": "حلول التخزين: S3 مقابل Cloud Storage",
+      "url": "#",
+      "week": 3
+    },
+    {
+      "id": "slide-6",
+      "title_en": "Networking in the Cloud",
+      "title_ar": "الشبكات في السحابة",
+      "url": "#",
+      "week": 3
+    },
+    {
+      "id": "slide-7",
+      "title_en": "Database Services Comparison",
+      "title_ar": "مقارنة خدمات قواعد البيانات",
+      "url": "#",
+      "week": 4
+    },
+    {
+      "id": "slide-8",
+      "title_en": "Containers and Kubernetes",
+      "title_ar": "الحاويات و Kubernetes",
+      "url": "#",
+      "week": 4
+    }
+  ]
+}

@@ -1,0 +1,1353 @@
+{
+  "generated_at": "2026-03-01",
+  "layout_hint": {
+    "left_column": "AWS",
+    "right_column": "Google Cloud",
+    "mapping": "one-to-one"
+  },
+  "categories": [
+    {
+      "id": "compute",
+      "title_en": "Compute",
+      "title_ar": "الحوسبة",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon EC2",
+            "desc_en": "Virtual machines with configurable compute, networking, and attached storage.",
+            "desc_ar": "آلات افتراضية بموارد قابلة للتخصيص للحوسبة والشبكات والتخزين."
+          },
+          "gcp": {
+            "name": "Compute Engine",
+            "desc_en": "Virtual machines running on Google infrastructure.",
+            "desc_ar": "آلات افتراضية تعمل على بنية جوجل التحتية."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS App Runner",
+            "desc_en": "Managed service to build and run containerized web apps.",
+            "desc_ar": "خدمة مُدارة لبناء وتشغيل تطبيقات ويب مُحَوْسبة بحاويات."
+          },
+          "gcp": {
+            "name": "Cloud Run",
+            "desc_en": "Fully managed platform to run containerized applications.",
+            "desc_ar": "منصة مُدارة بالكامل لتشغيل تطبيقات الحاويات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Batch",
+            "desc_en": "Run batch jobs across managed compute resources.",
+            "desc_ar": "تشغيل مهام الدُفعات عبر موارد حوسبة مُدارة."
+          },
+          "gcp": {
+            "name": "Batch",
+            "desc_en": "Managed batch job scheduling and execution.",
+            "desc_ar": "جدولة وتنفيذ مهام الدُفعات كخدمة مُدارة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Elastic Beanstalk",
+            "desc_en": "Deploy and scale web applications with managed platform orchestration.",
+            "desc_ar": "نشر وتوسيع تطبيقات الويب مع تنسيق منصة مُدار."
+          },
+          "gcp": {
+            "name": "App Engine",
+            "desc_en": "Managed platform for building and hosting applications.",
+            "desc_ar": "منصة مُدارة لبناء واستضافة التطبيقات."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both are PaaS; runtime and deployment models differ.",
+          "notes_ar": "كلاهما منصة تطبيقات؛ نماذج التشغيل والنشر تختلف."
+        },
+        {
+          "aws": {
+            "name": "AWS Lambda",
+            "desc_en": "Run code in response to events without server management.",
+            "desc_ar": "تشغيل كود استجابةً للأحداث دون إدارة خوادم."
+          },
+          "gcp": {
+            "name": "Cloud Run functions",
+            "desc_en": "Event-driven functions built on Cloud Run.",
+            "desc_ar": "دوال مدفوعة بالأحداث مبنية على Cloud Run."
+          },
+          "equivalence": "partial",
+          "notes_en": "Closest single GCP offering; Cloud Functions also overlaps.",
+          "notes_ar": "أقرب منتج واحد؛ Cloud Functions يتداخل أيضاً."
+        },
+        {
+          "aws": {
+            "name": "AWS Outposts",
+            "desc_en": "Run AWS infrastructure and services on-premises.",
+            "desc_ar": "تشغيل بنية وخدمات AWS داخل مقر العميل."
+          },
+          "gcp": {
+            "name": "Google Distributed Cloud connected",
+            "desc_en": "Google Cloud services extended to customer locations with connectivity.",
+            "desc_ar": "خدمات جوجل ممتدة لمواقع العملاء مع اتصال سحابي."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both bring cloud services on-prem; hardware and service scope differ.",
+          "notes_ar": "كلاهما سحابة لدى العميل؛ العتاد ونطاق الخدمات يختلفان."
+        }
+      ]
+    },
+    {
+      "id": "containers",
+      "title_en": "Containers",
+      "title_ar": "الحاويات",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Elastic Container Registry",
+            "desc_en": "Private registry for container images.",
+            "desc_ar": "سجل خاص لصور الحاويات."
+          },
+          "gcp": {
+            "name": "Artifact Registry",
+            "desc_en": "Store and manage container images and language packages.",
+            "desc_ar": "تخزين وإدارة صور الحاويات وحزم اللغات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Elastic Kubernetes Service",
+            "desc_en": "Managed Kubernetes control plane for running clusters.",
+            "desc_ar": "Kubernetes مُدار لإدارة وتشغيل العناقيد."
+          },
+          "gcp": {
+            "name": "Google Kubernetes Engine (GKE)",
+            "desc_en": "Managed Kubernetes and container orchestration.",
+            "desc_ar": "Kubernetes مُدار لتنسيق الحاويات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon ECS",
+            "desc_en": "Managed container orchestration service.",
+            "desc_ar": "خدمة مُدارة لتنسيق الحاويات."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "Closest single match depends: Cloud Run (serverless) or GKE (Kubernetes).",
+          "notes_ar": "أقرب تطابق يعتمد: Cloud Run أو GKE حسب النمط."
+        },
+        {
+          "aws": {
+            "name": "AWS App Mesh",
+            "desc_en": "Service mesh for microservices communication control.",
+            "desc_ar": "شبكة خدمات للتحكم باتصالات الميكروسيرفس."
+          },
+          "gcp": {
+            "name": "Cloud Service Mesh",
+            "desc_en": "Managed service mesh for microservices.",
+            "desc_ar": "شبكة خدمات مُدارة للميكروسيرفس."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "databases",
+      "title_en": "Databases",
+      "title_ar": "قواعد البيانات",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Aurora",
+            "desc_en": "MySQL/PostgreSQL-compatible relational database optimized for AWS.",
+            "desc_ar": "قاعدة علائقية متوافقة مع MySQL/PostgreSQL مُحسنة لـ AWS."
+          },
+          "gcp": {
+            "name": "AlloyDB for PostgreSQL",
+            "desc_en": "High-performance PostgreSQL-compatible managed database.",
+            "desc_ar": "قاعدة مُدارة متوافقة مع PostgreSQL عالية الأداء."
+          },
+          "equivalence": "partial",
+          "notes_en": "Best match for Aurora PostgreSQL; Aurora MySQL aligns closer to Cloud SQL for MySQL.",
+          "notes_ar": "أفضل تطابق لـ Aurora PostgreSQL؛ Aurora MySQL أقرب لـ Cloud SQL for MySQL."
+        },
+        {
+          "aws": {
+            "name": "Amazon DynamoDB",
+            "desc_en": "Managed key-value and document NoSQL database.",
+            "desc_ar": "قاعدة NoSQL مُدارة للمفاتيح والمستندات."
+          },
+          "gcp": {
+            "name": "Firestore in Native mode",
+            "desc_en": "Serverless NoSQL document database.",
+            "desc_ar": "قاعدة مستندات NoSQL بلا خوادم."
+          },
+          "equivalence": "partial",
+          "notes_en": "Closest single GCP NoSQL document offering; data model differs.",
+          "notes_ar": "أقرب قاعدة مستندات؛ نموذج البيانات يختلف."
+        },
+        {
+          "aws": {
+            "name": "Amazon ElastiCache",
+            "desc_en": "Managed in-memory caching compatible with Redis and Memcached.",
+            "desc_ar": "تخزين مؤقت ذاكرة مُدار متوافق مع Redis وMemcached."
+          },
+          "gcp": {
+            "name": "Memorystore for Redis",
+            "desc_en": "Managed Redis service for caching and data storage.",
+            "desc_ar": "خدمة Redis مُدارة للتخزين المؤقت والبيانات."
+          },
+          "equivalence": "partial",
+          "notes_en": "ElastiCache supports Redis and Memcached; this maps to Redis variant.",
+          "notes_ar": "ElastiCache يدعم Redis وMemcached؛ هذا تطابق مع Redis."
+        },
+        {
+          "aws": {
+            "name": "Amazon Neptune",
+            "desc_en": "Managed graph database supporting popular graph models.",
+            "desc_ar": "قاعدة رسوم بيانية مُدارة تدعم نماذج رسومية شائعة."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "No single first-party GCP managed graph database product in the catalogs used.",
+          "notes_ar": "لا يوجد منتج رسومي مُدار مكافئ كمنتج أساسي ضمن القوائم المستخدمة."
+        },
+        {
+          "aws": {
+            "name": "Amazon Redshift",
+            "desc_en": "Managed data warehouse for SQL analytics.",
+            "desc_ar": "مستودع بيانات مُدار لتحليلات SQL."
+          },
+          "gcp": {
+            "name": "BigQuery",
+            "desc_en": "Serverless data warehouse and analytics.",
+            "desc_ar": "مستودع بيانات بلا خوادم للتحليلات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Relational Database Service (Amazon RDS)",
+            "desc_en": "Managed relational databases (MySQL, PostgreSQL, MariaDB, Oracle, SQL Server).",
+            "desc_ar": "قواعد علائقية مُدارة مثل MySQL وPostgreSQL وOracle وSQL Server."
+          },
+          "gcp": {
+            "name": "Cloud SQL",
+            "desc_en": "Managed MySQL, PostgreSQL, and SQL Server databases.",
+            "desc_ar": "قواعد مُدارة لـ MySQL وPostgreSQL وSQL Server."
+          },
+          "equivalence": "partial",
+          "notes_en": "RDS supports more engines; Cloud SQL covers MySQL/PostgreSQL/SQL Server.",
+          "notes_ar": "RDS يدعم محركات أكثر؛ Cloud SQL يغطي MySQL/PostgreSQL/SQL Server."
+        }
+      ]
+    },
+    {
+      "id": "networking_and_content_delivery",
+      "title_en": "Networking and content delivery",
+      "title_ar": "الشبكات وتوزيع المحتوى",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon CloudFront",
+            "desc_en": "Content delivery network for caching and edge delivery.",
+            "desc_ar": "شبكة توزيع محتوى للتخزين المؤقت والتوصيل الطرفي."
+          },
+          "gcp": {
+            "name": "Cloud CDN",
+            "desc_en": "Content delivery network integrated with Google load balancing.",
+            "desc_ar": "شبكة توزيع محتوى مدمجة مع موازنة حمل جوجل."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Route 53",
+            "desc_en": "Managed DNS and domain routing service.",
+            "desc_ar": "خدمة DNS مُدارة وتوجيه نطاقات."
+          },
+          "gcp": {
+            "name": "Cloud DNS",
+            "desc_en": "Managed authoritative DNS service.",
+            "desc_ar": "خدمة DNS مُدارة وموثوقة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Virtual Private Cloud (Amazon VPC)",
+            "desc_en": "Isolated virtual networking for AWS resources.",
+            "desc_ar": "شبكة افتراضية معزولة لموارد AWS."
+          },
+          "gcp": {
+            "name": "Virtual Private Cloud (VPC)",
+            "desc_en": "Virtual networking for Google Cloud resources.",
+            "desc_ar": "شبكات افتراضية لموارد جوجل السحابية."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Direct Connect",
+            "desc_en": "Dedicated private network connections to AWS.",
+            "desc_ar": "اتصالات شبكة خاصة مخصصة إلى AWS."
+          },
+          "gcp": {
+            "name": "Cloud Interconnect",
+            "desc_en": "Dedicated connectivity to Google Cloud.",
+            "desc_ar": "اتصال مخصص إلى جوجل كلاود."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Elastic Load Balancing",
+            "desc_en": "Distribute incoming traffic across multiple targets.",
+            "desc_ar": "توزيع حركة المرور الواردة عبر أهداف متعددة."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "Closest product is Cloud Load Balancing, but not listed as a standalone product on the used GCP catalogs.",
+          "notes_ar": "أقرب منتج هو Cloud Load Balancing، لكنه ليس مدرجاً كمنتج مستقل في القوائم المستخدمة."
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "title_en": "Storage",
+      "title_ar": "التخزين",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Elastic Block Store",
+            "desc_en": "Block storage volumes for EC2 instances.",
+            "desc_ar": "وحدات تخزين كتلية لمثيلات EC2."
+          },
+          "gcp": {
+            "name": "Hyperdisk",
+            "desc_en": "High-performance block storage for Compute Engine and GKE.",
+            "desc_ar": "تخزين كتلي عالي الأداء لـ Compute Engine وGKE."
+          },
+          "equivalence": "partial",
+          "notes_en": "GCP exposes multiple block storage offerings; Hyperdisk is the newest tier.",
+          "notes_ar": "لدى جوجل عدة خيارات للتخزين الكتلي؛ Hyperdisk أحدث فئة."
+        },
+        {
+          "aws": {
+            "name": "Amazon Elastic File System",
+            "desc_en": "Managed NFS file storage for shared access.",
+            "desc_ar": "تخزين ملفات NFS مُدار للوصول المشترك."
+          },
+          "gcp": {
+            "name": "Filestore",
+            "desc_en": "Managed NFS file storage service.",
+            "desc_ar": "خدمة تخزين ملفات NFS مُدارة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Simple Storage Service",
+            "desc_en": "Object storage for any amount of data.",
+            "desc_ar": "تخزين كائنات لأي حجم من البيانات."
+          },
+          "gcp": {
+            "name": "Cloud Storage",
+            "desc_en": "Managed object storage for unstructured data.",
+            "desc_ar": "تخزين كائنات مُدار للبيانات غير المهيكلة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Backup",
+            "desc_en": "Centralized backup management across AWS services.",
+            "desc_ar": "إدارة نسخ احتياطي مركزية عبر خدمات AWS."
+          },
+          "gcp": {
+            "name": "Backup and DR Service",
+            "desc_en": "Backup and disaster recovery management service.",
+            "desc_ar": "خدمة النسخ الاحتياطي والتعافي من الكوارث."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "analytics",
+      "title_en": "Analytics",
+      "title_ar": "التحليلات",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Athena",
+            "desc_en": "Interactive query service for S3 data using SQL.",
+            "desc_ar": "خدمة استعلام تفاعلية لبيانات S3 باستخدام SQL."
+          },
+          "gcp": {
+            "name": "BigQuery",
+            "desc_en": "Serverless data warehouse for analytics.",
+            "desc_ar": "مستودع بيانات بلا خوادم للتحليلات."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both offer SQL analytics; BigQuery is a full data warehouse.",
+          "notes_ar": "كلاهما يقدم تحليلات SQL؛ BigQuery مستودع بيانات كامل."
+        },
+        {
+          "aws": {
+            "name": "Amazon EMR",
+            "desc_en": "Managed Hadoop/Spark clusters for big data processing.",
+            "desc_ar": "عناقيد Hadoop/Spark مُدارة لمعالجة البيانات الضخمة."
+          },
+          "gcp": {
+            "name": "Dataproc",
+            "desc_en": "Managed Spark and Hadoop service.",
+            "desc_ar": "خدمة Spark وHadoop مُدارة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Kinesis",
+            "desc_en": "Real-time data streaming and analytics.",
+            "desc_ar": "تدفق البيانات والتحليلات في الوقت الفعلي."
+          },
+          "gcp": {
+            "name": "Dataflow",
+            "desc_en": "Unified stream and batch data processing.",
+            "desc_ar": "معالجة بيانات موحدة للتدفق والدُفعات."
+          },
+          "equivalence": "partial",
+          "notes_en": "Dataflow handles both streaming and batch; Kinesis is streaming-focused.",
+          "notes_ar": "Dataflow يعالج التدفق والدُفعات؛ Kinesis يركز على التدفق."
+        },
+        {
+          "aws": {
+            "name": "AWS Glue",
+            "desc_en": "Serverless ETL service for data preparation.",
+            "desc_ar": "خدمة ETL بلا خوادم لإعداد البيانات."
+          },
+          "gcp": {
+            "name": "Cloud Data Fusion",
+            "desc_en": "Fully managed data integration service.",
+            "desc_ar": "خدمة تكامل بيانات مُدارة بالكامل."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both handle ETL; different interfaces and capabilities.",
+          "notes_ar": "كلاهما يعالج ETL؛ واجهات وقدرات مختلفة."
+        },
+        {
+          "aws": {
+            "name": "Amazon QuickSight",
+            "desc_en": "Business intelligence and visualization service.",
+            "desc_ar": "خدمة ذكاء الأعمال والتصور البياني."
+          },
+          "gcp": {
+            "name": "Looker",
+            "desc_en": "Business intelligence and data visualization platform.",
+            "desc_ar": "منصة ذكاء الأعمال والتصور البياني."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "application_integration",
+      "title_en": "Application integration",
+      "title_ar": "تكامل التطبيقات",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon EventBridge",
+            "desc_en": "Serverless event bus for application integration.",
+            "desc_ar": "ناقل أحداث بلا خوادم لتكامل التطبيقات."
+          },
+          "gcp": {
+            "name": "Eventarc",
+            "desc_en": "Event-driven architectures for Cloud Run.",
+            "desc_ar": "بنى مدفوعة بالأحداث لـ Cloud Run."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both handle events; different scope and integrations.",
+          "notes_ar": "كلاهما يعالج الأحداث؛ نطاق وتكاملات مختلفة."
+        },
+        {
+          "aws": {
+            "name": "Amazon SNS",
+            "desc_en": "Pub/sub messaging and mobile notifications.",
+            "desc_ar": "رسائل النشر/الاشتراك وإشعارات الجوال."
+          },
+          "gcp": {
+            "name": "Pub/Sub",
+            "desc_en": "Messaging and ingestion for event-driven systems.",
+            "desc_ar": "الرسائل والاستيعاب للأنظمة المدفوعة بالأحداث."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon SQS",
+            "desc_en": "Fully managed message queuing service.",
+            "desc_ar": "خدمة طوابير رسائل مُدارة بالكامل."
+          },
+          "gcp": {
+            "name": "Cloud Tasks",
+            "desc_en": "Asynchronous task execution service.",
+            "desc_ar": "خدمة تنفيذ المهام غير المتزامنة."
+          },
+          "equivalence": "partial",
+          "notes_en": "SQS is pure queuing; Cloud Tasks adds task management.",
+          "notes_ar": "SQS طوابير بحتة؛ Cloud Tasks يضيف إدارة المهام."
+        },
+        {
+          "aws": {
+            "name": "AWS Step Functions",
+            "desc_en": "Visual workflow orchestration for applications.",
+            "desc_ar": "تنسيق سير العمل المرئي للتطبيقات."
+          },
+          "gcp": {
+            "name": "Workflows",
+            "desc_en": "Orchestrate Google Cloud and HTTP-based services.",
+            "desc_ar": "تنسيق خدمات جوجل كلاود والخدمات المبنية على HTTP."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon API Gateway",
+            "desc_en": "Create, publish, and manage APIs at any scale.",
+            "desc_ar": "إنشاء ونشر وإدارة واجهات API بأي حجم."
+          },
+          "gcp": {
+            "name": "API Gateway",
+            "desc_en": "Develop, deploy, and manage APIs on Google Cloud.",
+            "desc_ar": "تطوير ونشر وإدارة واجهات API على جوجل كلاود."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "blockchain",
+      "title_en": "Blockchain",
+      "title_ar": "البلوكتشين",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Managed Blockchain",
+            "desc_en": "Create and manage scalable blockchain networks.",
+            "desc_ar": "إنشاء وإدارة شبكات بلوكتشين قابلة للتوسع."
+          },
+          "gcp": {
+            "name": "Blockchain Node Engine",
+            "desc_en": "Fully managed node hosting for Web3 development.",
+            "desc_ar": "استضافة عقد مُدارة بالكامل لتطوير Web3."
+          },
+          "equivalence": "partial",
+          "notes_en": "AWS offers full blockchain networks; GCP focuses on node hosting.",
+          "notes_ar": "AWS يقدم شبكات بلوكتشين كاملة؛ GCP يركز على استضافة العقد."
+        }
+      ]
+    },
+    {
+      "id": "business_applications",
+      "title_en": "Business applications",
+      "title_ar": "تطبيقات الأعمال",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Connect",
+            "desc_en": "Cloud-based contact center service.",
+            "desc_ar": "خدمة مركز اتصال سحابية."
+          },
+          "gcp": {
+            "name": "Contact Center AI",
+            "desc_en": "AI-powered contact center solutions.",
+            "desc_ar": "حلول مركز اتصال مدعومة بالذكاء الاصطناعي."
+          },
+          "equivalence": "partial",
+          "notes_en": "Connect is full contact center; CCAI adds AI to existing centers.",
+          "notes_ar": "Connect مركز اتصال كامل؛ CCAI يضيف الذكاء الاصطناعي للمراكز الحالية."
+        },
+        {
+          "aws": {
+            "name": "Amazon Chime",
+            "desc_en": "Communications service for meetings and chat.",
+            "desc_ar": "خدمة اتصالات للاجتماعات والدردشة."
+          },
+          "gcp": {
+            "name": "Google Meet",
+            "desc_en": "Video conferencing and meetings.",
+            "desc_ar": "مؤتمرات الفيديو والاجتماعات."
+          },
+          "equivalence": "partial",
+          "notes_en": "Google Meet is part of Workspace, not GCP.",
+          "notes_ar": "Google Meet جزء من Workspace وليس GCP."
+        }
+      ]
+    },
+    {
+      "id": "cloud_financial_management",
+      "title_en": "Cloud Financial Management",
+      "title_ar": "الإدارة المالية السحابية",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Cost Explorer",
+            "desc_en": "Visualize and manage AWS costs and usage.",
+            "desc_ar": "تصور وإدارة تكاليف واستخدام AWS."
+          },
+          "gcp": {
+            "name": "Cost Management",
+            "desc_en": "Tools to monitor and control GCP spending.",
+            "desc_ar": "أدوات لمراقبة والتحكم في إنفاق GCP."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Budgets",
+            "desc_en": "Set custom budgets and receive alerts.",
+            "desc_ar": "تعيين ميزانيات مخصصة وتلقي التنبيهات."
+          },
+          "gcp": {
+            "name": "Cloud Billing Budgets",
+            "desc_en": "Budget alerts and notifications.",
+            "desc_ar": "تنبيهات وإشعارات الميزانية."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "customer_enablement",
+      "title_en": "Customer enablement",
+      "title_ar": "تمكين العملاء",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Support",
+            "desc_en": "Technical support and guidance for AWS.",
+            "desc_ar": "الدعم الفني والإرشاد لـ AWS."
+          },
+          "gcp": {
+            "name": "Cloud Support",
+            "desc_en": "Technical support for Google Cloud.",
+            "desc_ar": "الدعم الفني لجوجل كلاود."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Training and Certification",
+            "desc_en": "Learning resources and certifications.",
+            "desc_ar": "موارد التعلم والشهادات."
+          },
+          "gcp": {
+            "name": "Google Cloud Skills Boost",
+            "desc_en": "Training and certification platform.",
+            "desc_ar": "منصة التدريب والشهادات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "developer_tools",
+      "title_en": "Developer tools",
+      "title_ar": "أدوات المطورين",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS CodeCommit",
+            "desc_en": "Managed source control service.",
+            "desc_ar": "خدمة إدارة التحكم بالمصدر."
+          },
+          "gcp": {
+            "name": "Cloud Source Repositories",
+            "desc_en": "Private Git repositories.",
+            "desc_ar": "مستودعات Git خاصة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS CodeBuild",
+            "desc_en": "Fully managed build service.",
+            "desc_ar": "خدمة بناء مُدارة بالكامل."
+          },
+          "gcp": {
+            "name": "Cloud Build",
+            "desc_en": "Serverless CI/CD platform.",
+            "desc_ar": "منصة CI/CD بلا خوادم."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS CodePipeline",
+            "desc_en": "Continuous delivery service.",
+            "desc_ar": "خدمة التسليم المستمر."
+          },
+          "gcp": {
+            "name": "Cloud Deploy",
+            "desc_en": "Managed continuous delivery to GKE.",
+            "desc_ar": "تسليم مستمر مُدار إلى GKE."
+          },
+          "equivalence": "partial",
+          "notes_en": "CodePipeline is more general; Cloud Deploy focuses on GKE.",
+          "notes_ar": "CodePipeline أكثر عمومية؛ Cloud Deploy يركز على GKE."
+        },
+        {
+          "aws": {
+            "name": "AWS Cloud9",
+            "desc_en": "Cloud-based IDE for writing and debugging code.",
+            "desc_ar": "بيئة تطوير سحابية لكتابة وتصحيح الكود."
+          },
+          "gcp": {
+            "name": "Cloud Shell Editor",
+            "desc_en": "Browser-based development environment.",
+            "desc_ar": "بيئة تطوير في المتصفح."
+          },
+          "equivalence": "partial",
+          "notes_en": "Cloud9 is a full IDE; Cloud Shell Editor is lighter.",
+          "notes_ar": "Cloud9 بيئة تطوير كاملة؛ Cloud Shell Editor أخف."
+        }
+      ]
+    },
+    {
+      "id": "end_user_computing",
+      "title_en": "End user computing",
+      "title_ar": "حوسبة المستخدم النهائي",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon WorkSpaces",
+            "desc_en": "Managed virtual desktops in the cloud.",
+            "desc_ar": "أسطح مكتب افتراضية مُدارة في السحابة."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "GCP does not have a direct VDI offering.",
+          "notes_ar": "GCP لا يملك عرض VDI مباشر."
+        },
+        {
+          "aws": {
+            "name": "Amazon AppStream 2.0",
+            "desc_en": "Application streaming service.",
+            "desc_ar": "خدمة بث التطبيقات."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "No direct GCP equivalent for app streaming.",
+          "notes_ar": "لا يوجد مكافئ مباشر لبث التطبيقات في GCP."
+        }
+      ]
+    },
+    {
+      "id": "frontend_web_mobile",
+      "title_en": "Front-end web and mobile",
+      "title_ar": "الويب والجوال الأمامي",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Amplify",
+            "desc_en": "Build and deploy full-stack web and mobile apps.",
+            "desc_ar": "بناء ونشر تطبيقات ويب وجوال كاملة."
+          },
+          "gcp": {
+            "name": "Firebase",
+            "desc_en": "Platform for building mobile and web applications.",
+            "desc_ar": "منصة لبناء تطبيقات الجوال والويب."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Pinpoint",
+            "desc_en": "Multichannel marketing communications.",
+            "desc_ar": "اتصالات تسويقية متعددة القنوات."
+          },
+          "gcp": {
+            "name": "Firebase Cloud Messaging",
+            "desc_en": "Cross-platform messaging solution.",
+            "desc_ar": "حل رسائل عبر المنصات."
+          },
+          "equivalence": "partial",
+          "notes_en": "Pinpoint is broader; FCM focuses on push notifications.",
+          "notes_ar": "Pinpoint أوسع؛ FCM يركز على الإشعارات."
+        }
+      ]
+    },
+    {
+      "id": "game_tech",
+      "title_en": "Game tech",
+      "title_ar": "تقنيات الألعاب",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon GameLift",
+            "desc_en": "Managed game server hosting.",
+            "desc_ar": "استضافة خوادم ألعاب مُدارة."
+          },
+          "gcp": {
+            "name": "Game Servers",
+            "desc_en": "Managed Agones game server hosting.",
+            "desc_ar": "استضافة خوادم ألعاب Agones مُدارة."
+          },
+          "equivalence": "partial",
+          "notes_en": "Both offer game server hosting with different approaches.",
+          "notes_ar": "كلاهما يقدم استضافة خوادم ألعاب بأساليب مختلفة."
+        }
+      ]
+    },
+    {
+      "id": "iot",
+      "title_en": "Internet of Things (IoT)",
+      "title_ar": "إنترنت الأشياء",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS IoT Core",
+            "desc_en": "Connect devices to the cloud securely.",
+            "desc_ar": "ربط الأجهزة بالسحابة بشكل آمن."
+          },
+          "gcp": {
+            "name": "Cloud IoT Core",
+            "desc_en": "Device management and data ingestion.",
+            "desc_ar": "إدارة الأجهزة واستيعاب البيانات."
+          },
+          "equivalence": "direct",
+          "notes_en": "Note: GCP IoT Core was deprecated in 2023.",
+          "notes_ar": "ملاحظة: تم إيقاف GCP IoT Core في 2023."
+        },
+        {
+          "aws": {
+            "name": "AWS IoT Greengrass",
+            "desc_en": "Edge computing for IoT devices.",
+            "desc_ar": "الحوسبة الطرفية لأجهزة IoT."
+          },
+          "gcp": {
+            "name": "Edge TPU",
+            "desc_en": "AI at the edge for IoT devices.",
+            "desc_ar": "الذكاء الاصطناعي على الحافة لأجهزة IoT."
+          },
+          "equivalence": "partial",
+          "notes_en": "Different focus: Greengrass is runtime; Edge TPU is hardware.",
+          "notes_ar": "تركيز مختلف: Greengrass وقت تشغيل؛ Edge TPU عتاد."
+        }
+      ]
+    },
+    {
+      "id": "machine_learning_ai",
+      "title_en": "Machine Learning (ML) and Artificial Intelligence (AI)",
+      "title_ar": "تعلم الآلة والذكاء الاصطناعي",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon SageMaker",
+            "desc_en": "Build, train, and deploy ML models.",
+            "desc_ar": "بناء وتدريب ونشر نماذج تعلم الآلة."
+          },
+          "gcp": {
+            "name": "Vertex AI",
+            "desc_en": "Unified ML platform for building and deploying models.",
+            "desc_ar": "منصة تعلم آلة موحدة لبناء ونشر النماذج."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Rekognition",
+            "desc_en": "Image and video analysis service.",
+            "desc_ar": "خدمة تحليل الصور والفيديو."
+          },
+          "gcp": {
+            "name": "Vision AI",
+            "desc_en": "Image analysis with pre-trained models.",
+            "desc_ar": "تحليل الصور بنماذج مدربة مسبقاً."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Comprehend",
+            "desc_en": "Natural language processing service.",
+            "desc_ar": "خدمة معالجة اللغة الطبيعية."
+          },
+          "gcp": {
+            "name": "Natural Language AI",
+            "desc_en": "Text analysis and entity recognition.",
+            "desc_ar": "تحليل النص والتعرف على الكيانات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Polly",
+            "desc_en": "Text-to-speech service.",
+            "desc_ar": "خدمة تحويل النص إلى كلام."
+          },
+          "gcp": {
+            "name": "Text-to-Speech",
+            "desc_en": "Convert text into natural speech.",
+            "desc_ar": "تحويل النص إلى كلام طبيعي."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Transcribe",
+            "desc_en": "Automatic speech recognition.",
+            "desc_ar": "التعرف التلقائي على الكلام."
+          },
+          "gcp": {
+            "name": "Speech-to-Text",
+            "desc_en": "Convert speech to text.",
+            "desc_ar": "تحويل الكلام إلى نص."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Translate",
+            "desc_en": "Neural machine translation.",
+            "desc_ar": "الترجمة الآلية العصبية."
+          },
+          "gcp": {
+            "name": "Translation AI",
+            "desc_en": "Dynamic translation between languages.",
+            "desc_ar": "الترجمة الديناميكية بين اللغات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon Bedrock",
+            "desc_en": "Foundation models for generative AI.",
+            "desc_ar": "نماذج أساسية للذكاء الاصطناعي التوليدي."
+          },
+          "gcp": {
+            "name": "Vertex AI (Gemini)",
+            "desc_en": "Access to Google's foundation models.",
+            "desc_ar": "الوصول إلى نماذج جوجل الأساسية."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "management_governance",
+      "title_en": "Management and governance",
+      "title_ar": "الإدارة والحوكمة",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS CloudFormation",
+            "desc_en": "Infrastructure as code for AWS resources.",
+            "desc_ar": "البنية التحتية ككود لموارد AWS."
+          },
+          "gcp": {
+            "name": "Cloud Deployment Manager",
+            "desc_en": "Infrastructure deployment service.",
+            "desc_ar": "خدمة نشر البنية التحتية."
+          },
+          "equivalence": "partial",
+          "notes_en": "Terraform is more commonly used on GCP.",
+          "notes_ar": "Terraform أكثر استخداماً على GCP."
+        },
+        {
+          "aws": {
+            "name": "AWS CloudTrail",
+            "desc_en": "Track user activity and API usage.",
+            "desc_ar": "تتبع نشاط المستخدم واستخدام API."
+          },
+          "gcp": {
+            "name": "Cloud Audit Logs",
+            "desc_en": "Audit logging for GCP services.",
+            "desc_ar": "سجلات التدقيق لخدمات GCP."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon CloudWatch",
+            "desc_en": "Monitoring and observability service.",
+            "desc_ar": "خدمة المراقبة والرصد."
+          },
+          "gcp": {
+            "name": "Cloud Monitoring",
+            "desc_en": "Infrastructure and application monitoring.",
+            "desc_ar": "مراقبة البنية التحتية والتطبيقات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Config",
+            "desc_en": "Track resource configurations and changes.",
+            "desc_ar": "تتبع تكوينات الموارد والتغييرات."
+          },
+          "gcp": {
+            "name": "Cloud Asset Inventory",
+            "desc_en": "View and monitor GCP assets.",
+            "desc_ar": "عرض ومراقبة أصول GCP."
+          },
+          "equivalence": "partial",
+          "notes_en": "AWS Config has more compliance features.",
+          "notes_ar": "AWS Config لديه ميزات امتثال أكثر."
+        },
+        {
+          "aws": {
+            "name": "AWS Organizations",
+            "desc_en": "Centrally manage multiple AWS accounts.",
+            "desc_ar": "إدارة حسابات AWS متعددة مركزياً."
+          },
+          "gcp": {
+            "name": "Resource Manager",
+            "desc_en": "Hierarchically manage GCP resources.",
+            "desc_ar": "إدارة موارد GCP بشكل هرمي."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title_en": "Media",
+      "title_ar": "الوسائط",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Elastic Transcoder",
+            "desc_en": "Media transcoding in the cloud.",
+            "desc_ar": "تحويل ترميز الوسائط في السحابة."
+          },
+          "gcp": {
+            "name": "Transcoder API",
+            "desc_en": "Convert video files to streaming formats.",
+            "desc_ar": "تحويل ملفات الفيديو إلى صيغ البث."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Elemental MediaLive",
+            "desc_en": "Live video processing service.",
+            "desc_ar": "خدمة معالجة الفيديو المباشر."
+          },
+          "gcp": {
+            "name": "Live Stream API",
+            "desc_en": "Transcode live video streams.",
+            "desc_ar": "تحويل ترميز تدفقات الفيديو المباشر."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "migration_transfer",
+      "title_en": "Migration and transfer",
+      "title_ar": "الترحيل والنقل",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Database Migration Service",
+            "desc_en": "Migrate databases to AWS.",
+            "desc_ar": "ترحيل قواعد البيانات إلى AWS."
+          },
+          "gcp": {
+            "name": "Database Migration Service",
+            "desc_en": "Migrate databases to Cloud SQL.",
+            "desc_ar": "ترحيل قواعد البيانات إلى Cloud SQL."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS DataSync",
+            "desc_en": "Automated data transfer service.",
+            "desc_ar": "خدمة نقل بيانات آلية."
+          },
+          "gcp": {
+            "name": "Storage Transfer Service",
+            "desc_en": "Transfer data to Cloud Storage.",
+            "desc_ar": "نقل البيانات إلى Cloud Storage."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Snow Family",
+            "desc_en": "Physical devices for data transfer.",
+            "desc_ar": "أجهزة فعلية لنقل البيانات."
+          },
+          "gcp": {
+            "name": "Transfer Appliance",
+            "desc_en": "Physical appliance for large data transfers.",
+            "desc_ar": "جهاز فعلي لنقل البيانات الكبيرة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    },
+    {
+      "id": "quantum_technologies",
+      "title_en": "Quantum technologies",
+      "title_ar": "التقنيات الكمية",
+      "items": [
+        {
+          "aws": {
+            "name": "Amazon Braket",
+            "desc_en": "Explore and design quantum algorithms.",
+            "desc_ar": "استكشاف وتصميم الخوارزميات الكمية."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "GCP does not have a public quantum computing service.",
+          "notes_ar": "GCP لا يملك خدمة حوسبة كمية عامة."
+        }
+      ]
+    },
+    {
+      "id": "satellite",
+      "title_en": "Satellite",
+      "title_ar": "الأقمار الصناعية",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Ground Station",
+            "desc_en": "Control satellites and process data.",
+            "desc_ar": "التحكم بالأقمار الصناعية ومعالجة البيانات."
+          },
+          "gcp": {
+            "name": "Not Available",
+            "desc_en": "",
+            "desc_ar": ""
+          },
+          "equivalence": "none",
+          "notes_en": "GCP does not have a satellite ground station service.",
+          "notes_ar": "GCP لا يملك خدمة محطة أرضية للأقمار الصناعية."
+        }
+      ]
+    },
+    {
+      "id": "security_identity_compliance",
+      "title_en": "Security, identity, and compliance",
+      "title_ar": "الأمن والهوية والامتثال",
+      "items": [
+        {
+          "aws": {
+            "name": "AWS Identity and Access Management (IAM)",
+            "desc_en": "Manage access to AWS services and resources.",
+            "desc_ar": "إدارة الوصول إلى خدمات وموارد AWS."
+          },
+          "gcp": {
+            "name": "Cloud IAM",
+            "desc_en": "Fine-grained access control for GCP resources.",
+            "desc_ar": "التحكم الدقيق بالوصول لموارد GCP."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Key Management Service (KMS)",
+            "desc_en": "Create and manage cryptographic keys.",
+            "desc_ar": "إنشاء وإدارة مفاتيح التشفير."
+          },
+          "gcp": {
+            "name": "Cloud KMS",
+            "desc_en": "Manage cryptographic keys for cloud services.",
+            "desc_ar": "إدارة مفاتيح التشفير للخدمات السحابية."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS Secrets Manager",
+            "desc_en": "Manage and retrieve secrets securely.",
+            "desc_ar": "إدارة واسترجاع الأسرار بشكل آمن."
+          },
+          "gcp": {
+            "name": "Secret Manager",
+            "desc_en": "Store and manage sensitive data.",
+            "desc_ar": "تخزين وإدارة البيانات الحساسة."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "AWS WAF",
+            "desc_en": "Web application firewall.",
+            "desc_ar": "جدار حماية تطبيقات الويب."
+          },
+          "gcp": {
+            "name": "Cloud Armor",
+            "desc_en": "DDoS protection and WAF.",
+            "desc_ar": "حماية DDoS وجدار حماية التطبيقات."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        },
+        {
+          "aws": {
+            "name": "Amazon GuardDuty",
+            "desc_en": "Threat detection service.",
+            "desc_ar": "خدمة كشف التهديدات."
+          },
+          "gcp": {
+            "name": "Security Command Center",
+            "desc_en": "Security and risk management platform.",
+            "desc_ar": "منصة إدارة الأمن والمخاطر."
+          },
+          "equivalence": "partial",
+          "notes_en": "SCC is broader; GuardDuty focuses on threat detection.",
+          "notes_ar": "SCC أوسع؛ GuardDuty يركز على كشف التهديدات."
+        },
+        {
+          "aws": {
+            "name": "AWS Certificate Manager",
+            "desc_en": "Provision and manage SSL/TLS certificates.",
+            "desc_ar": "توفير وإدارة شهادات SSL/TLS."
+          },
+          "gcp": {
+            "name": "Certificate Manager",
+            "desc_en": "Manage TLS certificates.",
+            "desc_ar": "إدارة شهادات TLS."
+          },
+          "equivalence": "direct",
+          "notes_en": "",
+          "notes_ar": ""
+        }
+      ]
+    }
+  ],
+  "unmatched_lists": {
+    "aws_only": [
+      "Amazon ECS",
+      "Elastic Load Balancing",
+      "Amazon Neptune",
+      "Amazon WorkSpaces",
+      "Amazon AppStream 2.0",
+      "Amazon Braket",
+      "AWS Ground Station"
+    ],
+    "gcp_only": []
+  }
+}

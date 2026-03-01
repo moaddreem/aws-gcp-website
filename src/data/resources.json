@@ -1,0 +1,59 @@
+{
+  "slides": [
+    {
+      "id": "slide-1",
+      "title_en": "Introduction to Cloud Computing",
+      "title_ar": "مقدمة في الحوسبة السحابية",
+      "url": "#"
+    },
+    {
+      "id": "slide-2",
+      "title_en": "AWS Core Services Overview",
+      "title_ar": "نظرة عامة على خدمات AWS الأساسية",
+      "url": "#"
+    },
+    {
+      "id": "slide-3",
+      "title_en": "Google Cloud Platform Fundamentals",
+      "title_ar": "أساسيات منصة Google Cloud",
+      "url": "#"
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab-1",
+      "title_en": "Introduction to Lab 1: Setting Up Your Cloud Environment",
+      "title_ar": "مقدمة للمختبر 1: إعداد بيئتك السحابية",
+      "labUrl": "#",
+      "solutionUrl": "#"
+    },
+    {
+      "id": "lab-2",
+      "title_en": "Lab 2: Deploying Your First EC2 Instance",
+      "title_ar": "المختبر 2: نشر أول مثيل EC2",
+      "labUrl": "#",
+      "solutionUrl": "#"
+    },
+    {
+      "id": "lab-3",
+      "title_en": "Lab 3: Working with Cloud Storage",
+      "title_ar": "المختبر 3: العمل مع التخزين السحابي",
+      "labUrl": "#",
+      "solutionUrl": null
+    }
+  ],
+  "extras": [
+    {
+      "id": "extra-1",
+      "title_en": "AWS vs GCP Cheat Sheet",
+      "title_ar": "ورقة مرجعية AWS مقابل GCP",
+      "url": "#"
+    },
+    {
+      "id": "extra-2",
+      "title_en": "Cloud Architecture Best Practices",
+      "title_ar": "أفضل ممارسات هندسة السحابة",
+      "url": "#"
+    }
+  ]
+}

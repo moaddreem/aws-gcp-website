@@ -1,0 +1,46 @@
+{
+  "extras": [
+    {
+      "id": "extra-1",
+      "title_en": "AWS Documentation",
+      "title_ar": "وثائق AWS",
+      "url": "https://docs.aws.amazon.com",
+      "type": "link"
+    },
+    {
+      "id": "extra-2",
+      "title_en": "Google Cloud Documentation",
+      "title_ar": "وثائق Google Cloud",
+      "url": "https://cloud.google.com/docs",
+      "type": "link"
+    },
+    {
+      "id": "extra-3",
+      "title_en": "AWS vs GCP Comparison Cheat Sheet",
+      "title_ar": "ورقة مقارنة AWS مقابل GCP",
+      "url": "#",
+      "type": "pdf"
+    },
+    {
+      "id": "extra-4",
+      "title_en": "Cloud Architecture Best Practices",
+      "title_ar": "أفضل ممارسات هندسة السحابة",
+      "url": "#",
+      "type": "pdf"
+    },
+    {
+      "id": "extra-5",
+      "title_en": "Certification Study Guide",
+      "title_ar": "دليل دراسة الشهادات",
+      "url": "#",
+      "type": "pdf"
+    },
+    {
+      "id": "extra-6",
+      "title_en": "Cloud Pricing Calculator",
+      "title_ar": "حاسبة أسعار السحابة",
+      "url": "https://calculator.aws",
+      "type": "tool"
+    }
+  ]
+}

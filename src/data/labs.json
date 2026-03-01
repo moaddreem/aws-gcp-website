@@ -1,0 +1,25 @@
+{
+  "labs": [
+    {
+      "id": "lab-1",
+      "labNumber": 1,
+      "category": "general",
+      "title_en": "Lab 1",
+      "title_ar": "المعمل 1",
+      "items": [
+        {
+          "type": "guide",
+          "title_en": "Installation Guide",
+          "title_ar": "دليل التثبيت",
+          "url": "/Labs/Lab1_Installation_Guide.pdf"
+        },
+        {
+          "type": "lab",
+          "title_en": "Lab Document",
+          "title_ar": "ملف المعمل",
+          "url": "/Labs/Lab1.pdf"
+        }
+      ]
+    }
+  ]
+}

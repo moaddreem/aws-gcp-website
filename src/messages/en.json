@@ -1,0 +1,183 @@
+{
+  "common": {
+    "language": "English",
+    "languageCode": "en",
+    "switchLanguage": "العربية"
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Map",
+    "services": "Services",
+    "learning": "Learning Materials",
+    "explore": "Explore"
+  },
+  "home": {
+    "badge": "Tuwaiq Academy × AWS × Google Cloud",
+    "headline": "Multi-Cloud Solutions Engineering Bootcamp (AWS & Google Cloud)",
+    "subtitle": "An intensive hands-on bootcamp designed to develop multi-cloud engineering skills in realistic environments that mirror the job market.",
+    "aboutTitle": "About the Bootcamp",
+    "aboutText": "An intensive hands-on bootcamp designed to develop multi-cloud engineering skills (AWS and GCP) in realistic environments that mirror the job market. Participants learn to design and manage infrastructure across compute, networking, and containers, with a strong focus on security and identity management. The bootcamp also covers building highly available, scalable systems, monitoring, cost optimization, and backup strategies. The goal is to graduate engineers ready to design and operate secure, reliable cloud solutions and step directly into professional engineering roles.",
+    "objectivesTitle": "Objectives",
+    "objectives": [
+      "Gain a comprehensive understanding of core cloud computing concepts, differentiate cloud infrastructure from traditional on-premises data centers, and choose the best platform per scenario.",
+      "Develop skills to design, deploy, and manage compute and storage resources, virtual machines, containers, and cloud databases using performance and efficiency best practices.",
+      "Master advanced cloud security concepts including IAM, encryption, data protection, and securing applications and services against common cyber threats.",
+      "Build skills in monitoring, log analysis, operations management, and performance/cost optimization to ensure stability and business continuity.",
+      "Use advanced tooling such as Cloud Shell/CLI, set up CI/CD pipelines, and deploy applications in real environments that simulate enterprise challenges."
+    ],
+    "location": "Tuwaiq Academy, Saudi Arabia",
+    "dates": "Feb 23 - May 14, 2026",
+    "dailyTime": "11:00 AM – 3:00 PM",
+    "ctaPrimary": "Explore Map",
+    "ctaSecondary": "View Materials",
+    "socialProofCount": "30+",
+    "socialProofText": "students enrolled in this bootcamp",
+    "provider": "Provider",
+    "progressTitle": "Bootcamp Progress",
+    "progressSubtitle": "Track our journey through the cloud",
+    "benefitsLabel": "What you'll gain",
+    "benefitsTitle": "Benefits from this program",
+    "benefits": {
+      "access": {
+        "title": "Full Access",
+        "desc": "Get complete access to all course materials, slides, and hands-on labs from day one."
+      },
+      "learn": {
+        "title": "Learn Both Clouds",
+        "desc": "Master both AWS and Google Cloud platforms with side-by-side comparisons and real examples."
+      },
+      "practice": {
+        "title": "Hands-on Labs",
+        "desc": "Practice with real cloud environments through guided labs and practical exercises."
+      },
+      "certify": {
+        "title": "Certification Ready",
+        "desc": "Prepare for AWS and GCP certification exams with targeted learning paths."
+      },
+      "network": {
+        "title": "Build Network",
+        "desc": "Connect with fellow cloud enthusiasts and industry professionals in Saudi Arabia."
+      },
+      "support": {
+        "title": "Expert Support",
+        "desc": "Get guidance from experienced instructors throughout your learning journey."
+      }
+    },
+    "testimonialsLabel": "Testimonials",
+    "testimonialsTitle": "What students say",
+    "testimonials": {
+      "1": {
+        "text": "This bootcamp gave me the practical skills I needed to transition into cloud engineering. The hands-on labs were invaluable."
+      },
+      "2": {
+        "text": "Learning both AWS and GCP side by side helped me understand the cloud landscape much better. Highly recommended!"
+      },
+      "3": {
+        "text": "The instructors are knowledgeable and the curriculum is well-structured. I feel confident pursuing cloud certifications now."
+      }
+    },
+    "faqLabel": "Questions?",
+    "faqTitle": "Frequently Asked Questions",
+    "faq": {
+      "prereq": {
+        "q": "What prerequisites do I need to enroll?",
+        "a": "Basic understanding of IT concepts and programming fundamentals is helpful but not required. We start from the basics."
+      },
+      "schedule": {
+        "q": "What is the bootcamp schedule?",
+        "a": "The bootcamp runs daily from 11:00 AM to 3:00 PM (Saudi Arabia time), from February 23 to May 14, 2026."
+      },
+      "certificate": {
+        "q": "Will I receive a certificate upon completion?",
+        "a": "Yes, you will receive a certificate of completion from Tuwaiq Academy upon successfully finishing the bootcamp."
+      },
+      "materials": {
+        "q": "How can I access the learning materials?",
+        "a": "All learning materials including slides, labs, and extra resources are available through the Learning Materials section of this website."
+      }
+    },
+    "ctaTitle": "Ready to Start Your Cloud Journey?",
+    "ctaSubtitle": "Explore our interactive map of global cloud infrastructure or dive into the learning materials."
+  },
+  "map": {
+    "title": "Cloud Infrastructure Map",
+    "subtitle": "Explore AWS and Google Cloud global infrastructure",
+    "filters": "Filters",
+    "provider": "Provider",
+    "status": "Status",
+    "type": "Type",
+    "aws": "AWS",
+    "gcp": "Google Cloud",
+    "both": "Both",
+    "live": "Live",
+    "announced": "Announced",
+    "regions": "Regions",
+    "dataCenters": "Data Centers",
+    "streets": "Streets",
+    "satellite": "Satellite",
+    "terrain": "Terrain",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit Fullscreen",
+    "noKeyMessage": "Satellite view requires a MapTiler API key",
+    "details": "Details",
+    "code": "Code",
+    "notes": "Notes"
+  },
+  "services": {
+    "title": "Cloud Services Comparison",
+    "subtitle": "Compare AWS and Google Cloud services by category",
+    "search": "Search services...",
+    "awsService": "AWS Service",
+    "gcpService": "Google Cloud Service",
+    "notAvailable": "Not Available",
+    "backToCategories": "Back to Categories",
+    "servicesCount": "{count} services"
+  },
+  "footer": {
+    "meetCreator": "Who's the amazing person behind this website?",
+    "creatorDescription": "I created this website to organize everything :)",
+    "creatorSignature": "— by MUATH AL-DURAYM",
+    "copyright": "Cloud Bootcamp. All rights reserved.",
+    "visitSite": "Check my personal website",
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "slides": "Slides",
+    "labs": "Labs",
+    "extras": "Extras",
+    "providers": "Cloud Providers",
+    "academy": "Academy"
+  },
+  "labs": {
+    "modalTitle": "Access Lab",
+    "labsOnly": "Labs Only",
+    "labsWithSolutions": "Labs + Solutions",
+    "comingSoon": "Coming Soon"
+  },
+  "learning": {
+    "title": "Learning Materials",
+    "subtitle": "Access all bootcamp resources including slides, labs, and extra materials",
+    "slides": "Slides",
+    "slidesDesc": "Presentation materials and lecture slides",
+    "labs": "Labs",
+    "labsDesc": "Hands-on exercises and practical labs",
+    "extras": "Extras",
+    "extrasDesc": "Additional resources and reference materials",
+    "selectSection": "Select a section above to view materials",
+    "noItems": "No items available yet",
+    "viewSlides": "View Slides",
+    "accessLab": "Access Lab",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Learning materials will be added soon. Please check back later.",
+    "bootcampInProgress": "Bootcamp in progress"
+  },
+  "categories": {
+    "genai": "Generative AI",
+    "compute": "Compute",
+    "storage": "Storage",
+    "containers": "Containers",
+    "databases": "Databases",
+    "networking": "Networking",
+    "security": "Security",
+    "analytics": "Analytics"
+  }
+}
