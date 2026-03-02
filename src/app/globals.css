@@ -35,8 +35,8 @@
     /* Vignette for light mode */
     --vignette-color: rgba(11, 18, 32, 0.06);
     
-    /* Map panel - light mode uses regular card styles */
-    --bg-map-panel: #E2E5EB;
+    /* Map panel - light mode uses solid background */
+    --bg-map-panel: #FFFFFF;
     --bg-map-chip: #D8DCE4;
     --bg-map-chip-hover: #CDD1DA;
     --border-map-panel: rgba(0, 0, 0, 0.08);
