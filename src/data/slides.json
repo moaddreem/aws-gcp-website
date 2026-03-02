@@ -2,59 +2,39 @@
   "slides": [
     {
       "id": "slide-1",
-      "title_en": "Introduction to Cloud Computing",
-      "title_ar": "مقدمة في الحوسبة السحابية",
-      "url": "#",
-      "week": 1
+      "title_en": "M01: Linux Fundamentals for Cloud Computing",
+      "title_ar": "M01: أساسيات لينكس للحوسبة السحابية",
+      "url": "/Slides/linux-M01-linux-fundamentals-for-cloud-computing-2026-03-02-dracula.pdf"
     },
     {
       "id": "slide-2",
-      "title_en": "AWS Core Services Overview",
-      "title_ar": "نظرة عامة على خدمات AWS الأساسية",
-      "url": "#",
-      "week": 1
+      "title_en": "M02: First Contact: The Terminal",
+      "title_ar": "M02: أول تواصل: الطرفية (Terminal)",
+      "url": "/Slides/linux-M02-first-contact-the-terminal-2026-03-02-dracula.pdf"
     },
     {
       "id": "slide-3",
-      "title_en": "Google Cloud Platform Fundamentals",
-      "title_ar": "أساسيات منصة Google Cloud",
-      "url": "#",
-      "week": 2
+      "title_en": "M03: The Map: Navigating Linux",
+      "title_ar": "M03: الخريطة: التنقل داخل لينكس",
+      "url": "/Slides/linux-M03-the-map-navigating-linux-2026-03-02-dracula.pdf"
     },
     {
       "id": "slide-4",
-      "title_en": "Compute Services: EC2 vs Compute Engine",
-      "title_ar": "خدمات الحوسبة: EC2 مقابل Compute Engine",
-      "url": "#",
-      "week": 2
+      "title_en": "M04: Working with Files",
+      "title_ar": "M04: التعامل مع الملفات",
+      "url": "/Slides/linux-M04-working-with-files-2026-03-02-dracula.pdf"
     },
     {
       "id": "slide-5",
-      "title_en": "Storage Solutions: S3 vs Cloud Storage",
-      "title_ar": "حلول التخزين: S3 مقابل Cloud Storage",
-      "url": "#",
-      "week": 3
+      "title_en": "M05: The Editor's Toolkit",
+      "title_ar": "M05: عدة أدوات المحرر",
+      "url": "/Slides/linux-M05-the-editor-s-toolkit-2026-03-02-dracula.pdf"
     },
     {
       "id": "slide-6",
-      "title_en": "Networking in the Cloud",
-      "title_ar": "الشبكات في السحابة",
-      "url": "#",
-      "week": 3
-    },
-    {
-      "id": "slide-7",
-      "title_en": "Database Services Comparison",
-      "title_ar": "مقارنة خدمات قواعد البيانات",
-      "url": "#",
-      "week": 4
-    },
-    {
-      "id": "slide-8",
-      "title_en": "Containers and Kubernetes",
-      "title_ar": "الحاويات و Kubernetes",
-      "url": "#",
-      "week": 4
+      "title_en": "M06: Access Control: Permissions",
+      "title_ar": "M06: التحكم بالوصول: الصلاحيات",
+      "url": "/Slides/linux-M06-access-control-permissions-2026-03-02-dracula.pdf"
     }
   ]
 }

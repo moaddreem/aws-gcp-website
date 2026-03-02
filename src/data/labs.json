@@ -15,9 +15,15 @@
         },
         {
           "type": "lab",
-          "title_en": "Lab Document",
-          "title_ar": "ملف المعمل",
+          "title_en": "Lab 1 Preparation",
+          "title_ar": "تحضير المعمل 1",
           "url": "/Labs/Lab1.pdf"
+        },
+        {
+          "type": "lab",
+          "title_en": "Lab: Operation Lockdown",
+          "title_ar": "لاب: عملية الإقفال (Operation Lockdown)",
+          "url": "/Labs/lab1-operation-lockdown.pdf"
         }
       ]
     }
