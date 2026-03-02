@@ -327,8 +327,8 @@ export default function CloudMap() {
           const regionCode = feature.properties.region_code || 'N/A';
           
           const tooltipHTML = `
-            <div style="padding: 8px 12px; font-size: 13px; max-width: 250px;">
-              <div style="font-weight: 600; margin-bottom: 6px;">${name}</div>
+            <div style="padding: 8px 12px; font-size: 13px; max-width: 250px; color: #ffffff;">
+              <div style="font-weight: 600; margin-bottom: 6px; color: #ffffff;">${name}</div>
               <div style="display: flex; gap: 6px; margin-bottom: 6px;">
                 <span style="background: ${color}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 500;">
                   ${feature.properties.provider.toUpperCase()}
@@ -337,10 +337,10 @@ export default function CloudMap() {
                   ${statusText}
                 </span>
               </div>
-              <div style="color: #666; font-size: 12px;">
-                <div><strong>${locale === 'ar' ? 'الرمز' : 'Code'}:</strong> ${regionCode}</div>
-                <div><strong>${locale === 'ar' ? 'الدولة' : 'Country'}:</strong> ${country}</div>
-                <div><strong>${locale === 'ar' ? 'المدينة' : 'City'}:</strong> ${city}</div>
+              <div style="color: rgba(255,255,255,0.8); font-size: 12px;">
+                <div><strong style="color: #ffffff;">${locale === 'ar' ? 'الرمز' : 'Code'}:</strong> ${regionCode}</div>
+                <div><strong style="color: #ffffff;">${locale === 'ar' ? 'الدولة' : 'Country'}:</strong> ${country}</div>
+                <div><strong style="color: #ffffff;">${locale === 'ar' ? 'المدينة' : 'City'}:</strong> ${city}</div>
               </div>
             </div>
           `;
@@ -656,8 +656,8 @@ export default function CloudMap() {
                               const regionCode = props.region_code || 'N/A';
                               
                               const tooltipHTML = `
-                                <div style="padding: 8px 12px; font-size: 13px; max-width: 250px;">
-                                  <div style="font-weight: 600; margin-bottom: 6px;">${name}</div>
+                                <div style="padding: 8px 12px; font-size: 13px; max-width: 250px; color: #ffffff;">
+                                  <div style="font-weight: 600; margin-bottom: 6px; color: #ffffff;">${name}</div>
                                   <div style="display: flex; gap: 6px; margin-bottom: 6px;">
                                     <span style="background: ${color}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 500;">
                                       ${props.provider.toUpperCase()}
@@ -666,10 +666,10 @@ export default function CloudMap() {
                                       ${statusText}
                                     </span>
                                   </div>
-                                  <div style="color: #666; font-size: 12px;">
-                                    <div><strong>${locale === 'ar' ? 'الرمز' : 'Code'}:</strong> ${regionCode}</div>
-                                    <div><strong>${locale === 'ar' ? 'الدولة' : 'Country'}:</strong> ${country}</div>
-                                    <div><strong>${locale === 'ar' ? 'المدينة' : 'City'}:</strong> ${city}</div>
+                                  <div style="color: rgba(255,255,255,0.8); font-size: 12px;">
+                                    <div><strong style="color: #ffffff;">${locale === 'ar' ? 'الرمز' : 'Code'}:</strong> ${regionCode}</div>
+                                    <div><strong style="color: #ffffff;">${locale === 'ar' ? 'الدولة' : 'Country'}:</strong> ${country}</div>
+                                    <div><strong style="color: #ffffff;">${locale === 'ar' ? 'المدينة' : 'City'}:</strong> ${city}</div>
                                   </div>
                                 </div>
                               `;
