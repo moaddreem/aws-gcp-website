@@ -94,22 +94,22 @@ export default function Header() {
             <div className="hidden sm:flex flex-col leading-tight gap-0.5">
               {locale === 'ar' ? (
                 <>
-                  <span className="text-[10px] font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
+                  <span className="text-xs font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
                     من طلاب
                   </span>
-                  <span className="font-bold text-lg" style={{ color: 'var(--text-primary)' }}>
+                  <span className="font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
                     أكاديمية طويق
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="text-[10px] font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
+                  <span className="text-xs font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
                     by
                   </span>
-                  <span className="font-bold text-lg" style={{ color: 'var(--text-primary)' }}>
+                  <span className="font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
                     Tuwaiq Academy
                   </span>
-                  <span className="text-[10px] font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
+                  <span className="text-xs font-medium" style={{ color: 'var(--text-muted)', opacity: 0.7 }}>
                     student
                   </span>
                 </>
