@@ -35,6 +35,24 @@
       "title_en": "M06: Access Control: Permissions",
       "title_ar": "M06: التحكم بالوصول: الصلاحيات",
       "url": "/Slides/linux-M06-access-control-permissions-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-7",
+      "title_en": "M07: Making It Home: Shell Customization",
+      "title_ar": "M07: اجعلها بيتك: تخصيص الشل",
+      "url": "/Slides/linux-M07-making-it-home-shell-customization-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-8",
+      "title_en": "M08: Users, Groups & Sudo",
+      "title_ar": "M08: المستخدمون والمجموعات و Sudo",
+      "url": "/Slides/linux-M08-users-groups-sudo-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-9",
+      "title_en": "M09: SSH Keys and Security: Lock the Door",
+      "title_ar": "M09: مفاتيح SSH والأمان: أقفل الباب",
+      "url": "/Slides/linux-M09-ssh-keys-and-security-lock-the-door-2026-03-02-dracula.pdf"
     }
   ]
 }

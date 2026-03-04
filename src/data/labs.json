@@ -26,6 +26,21 @@
           "url": "/Labs/lab1-operation-lockdown.pdf"
         }
       ]
+    },
+    {
+      "id": "lab-2",
+      "labNumber": 2,
+      "category": "general",
+      "title_en": "Lab 2",
+      "title_ar": "المعمل 2",
+      "items": [
+        {
+          "type": "lab",
+          "title_en": "Lab: Operation New Crew",
+          "title_ar": "لاب: عملية الطاقم الجديد (Operation New Crew)",
+          "url": "/Labs/Lab2-operation-new-crew.pdf"
+        }
+      ]
     }
   ]
 }
