@@ -53,6 +53,24 @@
       "title_en": "M09: SSH Keys and Security: Lock the Door",
       "title_ar": "M09: مفاتيح SSH والأمان: أقفل الباب",
       "url": "/Slides/linux-M09-ssh-keys-and-security-lock-the-door-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-10",
+      "title_en": "M10: Package Management with APT: Installing Software",
+      "title_ar": "M10: إدارة الحزم باستخدام APT: تثبيت البرامج",
+      "url": "/Slides/linux-M10-package-management-with-apt-installing-software-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-11",
+      "title_en": "M11: Services and Systemd: Keep It Running",
+      "title_ar": "M11: الخدمات و Systemd: اجعلها تعمل",
+      "url": "/Slides/linux-M11-services-and-systemd-keep-it-running-2026-03-02-dracula.pdf"
+    },
+    {
+      "id": "slide-12",
+      "title_en": "M12: Your First Script",
+      "title_ar": "M12: أول سكربت لك",
+      "url": "/Slides/linux-M12-your-first-script-2026-03-02-dracula  -  Repaired.pdf"
     }
   ]
 }
