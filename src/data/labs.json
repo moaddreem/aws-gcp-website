@@ -41,6 +41,21 @@
           "url": "/Labs/Lab2-operation-new-crew.pdf"
         }
       ]
+    },
+    {
+      "id": "lab-3",
+      "labNumber": 3,
+      "category": "general",
+      "title_en": "Lab 3",
+      "title_ar": "المعمل 3",
+      "items": [
+        {
+          "type": "lab",
+          "title_en": "Lab: Operation Go Live",
+          "title_ar": "لاب: عملية الإطلاق (Operation Go Live)",
+          "url": "/Labs/lab3-operation-go-live.pdf"
+        }
+      ]
     }
   ]
 }
