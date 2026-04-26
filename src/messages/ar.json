@@ -161,7 +161,7 @@
     "labs": "المعامل",
     "labsDesc": "تمارين عملية ومعامل تطبيقية",
     "extras": "مصادر إضافية",
-    "extrasDesc": "ملفات وروابط ومصادر تدريبية إضافية تساعدك في رحلتك لتعلم AWS و Google Cloud.",
+    "extrasDesc": "مصادر لاختبار AWS و GCP",
     "selectSection": "اختر قسماً أعلاه لعرض المواد",
     "noItems": "لا توجد عناصر متاحة بعد",
     "viewSlides": "عرض الشرائح",
@@ -171,7 +171,7 @@
     "bootcampInProgress": "المعسكر جارٍ حالياً",
     "extraResources": {
       "title": "مصادر إضافية",
-      "subtitle": "ملفات وروابط ومصادر تدريبية إضافية تساعدك في رحلتك لتعلم AWS و Google Cloud.",
+      "subtitle": "مصادر لاختبار AWS و GCP",
       "aws": "AWS",
       "gcp": "Google Cloud",
       "viewResource": "عرض المصدر",
