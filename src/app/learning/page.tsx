@@ -6,15 +6,18 @@ import { useLocale } from 'next-intl';
 import InnerPageShell from '@/components/InnerPageShell';
 import labsData from '@/data/labs.json';
 import slidesData from '@/data/slides.json';
+import extrasData from '@/data/extras.json';
 
 type Section = 'slides' | 'labs' | 'extras' | null;
 type LabCategory = 'all' | 'aws' | 'gcp' | 'general';
+type CloudProvider = 'aws' | 'gcp';
 
 export default function LearningPage() {
   const t = useTranslations('learning');
   const locale = useLocale();
   const [activeSection, setActiveSection] = useState<Section>(null);
   const [labCategory, setLabCategory] = useState<LabCategory>('all');
+  const [activeCloudProvider, setActiveCloudProvider] = useState<CloudProvider>('aws');
 
   const toggleSection = (section: Section) => {
     setActiveSection(activeSection === section ? null : section);
@@ -245,25 +248,102 @@ export default function LearningPage() {
                 </div>
               )}
 
-              {/* Coming Soon Content - For extras only */}
+              {/* Extras Content */}
               {activeSection === 'extras' && (
-                <div className="card text-center py-16">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500/10 to-blue-500/10 flex items-center justify-center">
-                    <svg className="w-10 h-10" style={{ color: 'var(--text-muted)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div className="space-y-6">
+                  {/* Cloud Provider Tabs */}
+                  <div className="flex flex-wrap gap-2">
+                    {(['aws', 'gcp'] as CloudProvider[]).map((provider) => (
+                      <button
+                        key={provider}
+                        onClick={() => setActiveCloudProvider(provider)}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                          activeCloudProvider === provider
+                            ? 'text-white'
+                            : ''
+                        }`}
+                        style={{
+                          background: activeCloudProvider === provider 
+                            ? (provider === 'aws' ? 'var(--aws)' : 'var(--gcp)')
+                            : 'var(--bg-secondary)',
+                          color: activeCloudProvider === provider ? 'white' : 'var(--text-secondary)'
+                        }}
+                      >
+                        {t(`extraResources.${provider}`)}
+                      </button>
+                    ))}
                   </div>
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
-                    {t('comingSoon')}
-                  </h3>
-                  <p className="max-w-md mx-auto mb-6" style={{ color: 'var(--text-secondary)' }}>
-                    {t('comingSoonDesc')}
-                  </p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm" style={{ background: 'var(--bg-secondary)', color: 'var(--text-muted)' }}>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {t('bootcampInProgress')}
+
+                  {/* Section Description */}
+                  <div className="card p-6">
+                    <h3 className="text-xl font-bold mb-3" style={{ color: activeCloudProvider === 'aws' ? 'var(--aws)' : 'var(--gcp)' }}>
+                      {locale === 'ar' 
+                        ? (activeCloudProvider === 'aws' ? extrasData.aws.title_ar : extrasData.gcp.title_ar)
+                        : (activeCloudProvider === 'aws' ? extrasData.aws.title_en : extrasData.gcp.title_en)
+                      }
+                    </h3>
+                    <p style={{ color: 'var(--text-secondary)' }}>
+                      {locale === 'ar' 
+                        ? (activeCloudProvider === 'aws' ? extrasData.aws.description_ar : extrasData.gcp.description_ar)
+                        : (activeCloudProvider === 'aws' ? extrasData.aws.description_en : extrasData.gcp.description_en)
+                      }
+                    </p>
+                  </div>
+
+                  {/* Resources List */}
+                  <div className="space-y-4">
+                    {(activeCloudProvider === 'aws' ? extrasData.aws.resources : extrasData.gcp.resources).map((resource) => (
+                      <div key={resource.id} className="card p-6">
+                        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                              {locale === 'ar' ? resource.title_ar : resource.title_en}
+                            </h4>
+                            <p className="text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
+                              {locale === 'ar' ? resource.description_ar : resource.description_en}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {(locale === 'ar' ? resource.badges_ar : resource.badges_en).map((badge, idx) => (
+                                <span
+                                  key={idx}
+                                  className="px-2 py-1 rounded-full text-xs font-medium"
+                                  style={{
+                                    background: activeCloudProvider === 'aws' 
+                                      ? 'rgba(251, 146, 60, 0.1)' 
+                                      : 'rgba(66, 133, 244, 0.1)',
+                                    color: activeCloudProvider === 'aws' ? 'var(--aws)' : 'var(--gcp)'
+                                  }}
+                                >
+                                  {badge}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <a
+                            href={resource.url}
+                            target={resource.type === 'website' ? '_blank' : '_self'}
+                            rel={resource.type === 'website' ? 'noopener noreferrer' : ''}
+                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:opacity-90 ${
+                              resource.type === 'website' ? 'hover:scale-105' : ''
+                            }`}
+                            style={{
+                              background: activeCloudProvider === 'aws' ? 'var(--aws)' : 'var(--gcp)',
+                              color: 'white'
+                            }}
+                          >
+                            {locale === 'ar' ? resource.button_ar : resource.button_en}
+                            <svg 
+                              className="w-4 h-4 rtl:rotate-180" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}

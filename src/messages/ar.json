@@ -160,15 +160,23 @@
     "slidesDesc": "مواد العرض وشرائح المحاضرات",
     "labs": "المعامل",
     "labsDesc": "تمارين عملية ومعامل تطبيقية",
-    "extras": "إضافات",
-    "extrasDesc": "موارد إضافية ومواد مرجعية",
+    "extras": "مصادر إضافية",
+    "extrasDesc": "ملفات وروابط ومصادر تدريبية إضافية تساعدك في رحلتك لتعلم AWS و Google Cloud.",
     "selectSection": "اختر قسماً أعلاه لعرض المواد",
     "noItems": "لا توجد عناصر متاحة بعد",
     "viewSlides": "عرض الشرائح",
     "accessLab": "الوصول للمعمل",
     "comingSoon": "قريباً",
     "comingSoonDesc": "سيتم إضافة المواد التعليمية قريباً. يرجى التحقق مرة أخرى لاحقاً.",
-    "bootcampInProgress": "المعسكر جارٍ حالياً"
+    "bootcampInProgress": "المعسكر جارٍ حالياً",
+    "extraResources": {
+      "title": "مصادر إضافية",
+      "subtitle": "ملفات وروابط ومصادر تدريبية إضافية تساعدك في رحلتك لتعلم AWS و Google Cloud.",
+      "aws": "AWS",
+      "gcp": "Google Cloud",
+      "viewResource": "عرض المصدر",
+      "downloadPdf": "تحميل الملف"
+    }
   },
   "categories": {
     "genai": "الذكاء الاصطناعي التوليدي",

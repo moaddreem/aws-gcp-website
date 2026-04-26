@@ -160,15 +160,23 @@
     "slidesDesc": "Presentation materials and lecture slides",
     "labs": "Labs",
     "labsDesc": "Hands-on exercises and practical labs",
-    "extras": "Extras",
-    "extrasDesc": "Additional resources and reference materials",
+    "extras": "Extra Resources",
+    "extrasDesc": "Extra files, links, and practice resources to support your AWS and Google Cloud learning journey.",
     "selectSection": "Select a section above to view materials",
     "noItems": "No items available yet",
     "viewSlides": "View Slides",
     "accessLab": "Access Lab",
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "Learning materials will be added soon. Please check back later.",
-    "bootcampInProgress": "Bootcamp in progress"
+    "bootcampInProgress": "Bootcamp in progress",
+    "extraResources": {
+      "title": "Extra Resources",
+      "subtitle": "Extra files, links, and practice resources to support your AWS and Google Cloud learning journey.",
+      "aws": "AWS",
+      "gcp": "Google Cloud",
+      "viewResource": "View Resource",
+      "downloadPdf": "Download PDF"
+    }
   },
   "categories": {
     "genai": "Generative AI",

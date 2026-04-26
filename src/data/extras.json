@@ -1,46 +1,96 @@
 {
-  "extras": [
-    {
-      "id": "extra-1",
-      "title_en": "AWS Documentation",
-      "title_ar": "وثائق AWS",
-      "url": "https://docs.aws.amazon.com",
-      "type": "link"
-    },
-    {
-      "id": "extra-2",
-      "title_en": "Google Cloud Documentation",
-      "title_ar": "وثائق Google Cloud",
-      "url": "https://cloud.google.com/docs",
-      "type": "link"
-    },
-    {
-      "id": "extra-3",
-      "title_en": "AWS vs GCP Comparison Cheat Sheet",
-      "title_ar": "ورقة مقارنة AWS مقابل GCP",
-      "url": "#",
-      "type": "pdf"
-    },
-    {
-      "id": "extra-4",
-      "title_en": "Cloud Architecture Best Practices",
-      "title_ar": "أفضل ممارسات هندسة السحابة",
-      "url": "#",
-      "type": "pdf"
-    },
-    {
-      "id": "extra-5",
-      "title_en": "Certification Study Guide",
-      "title_ar": "دليل دراسة الشهادات",
-      "url": "#",
-      "type": "pdf"
-    },
-    {
-      "id": "extra-6",
-      "title_en": "Cloud Pricing Calculator",
-      "title_ar": "حاسبة أسعار السحابة",
-      "url": "https://calculator.aws",
-      "type": "tool"
-    }
-  ]
+  "aws": {
+    "title_en": "AWS Resources",
+    "title_ar": "مصادر AWS",
+    "description_en": "Useful resources for preparing for the AWS Certified Solutions Architect – Associate exam.",
+    "description_ar": "مصادر مفيدة للتحضير لاختبار AWS Certified Solutions Architect – Associate.",
+    "resources": [
+      {
+        "id": "aws-1",
+        "title_en": "AWS SAA-C03 Exam Guide",
+        "title_ar": "دليل اختبار AWS SAA-C03",
+        "description_en": "Official AWS exam guide for the Solutions Architect – Associate SAA-C03 certification. It explains the exam structure, target candidate, content domains, question types, and the AWS services covered in the exam.",
+        "description_ar": "دليل رسمي من AWS لاختبار Solutions Architect – Associate SAA-C03. يشرح نظام الاختبار، الفئة المستهدفة، مجالات الاختبار، أنواع الأسئلة، والخدمات الداخلة في الاختبار.",
+        "url": "/extra/solutions-architect-associate-03.pdf",
+        "type": "pdf",
+        "badges_en": ["Official PDF", "Exam Guide"],
+        "badges_ar": ["ملف رسمي", "دليل الاختبار"],
+        "button_en": "Download PDF",
+        "button_ar": "تحميل الملف"
+      },
+      {
+        "id": "aws-2",
+        "title_en": "AWS SAA-C03 Sample Questions",
+        "title_ar": "أسئلة تدريبية لاختبار AWS SAA-C03",
+        "description_en": "Official AWS sample questions for the Solutions Architect – Associate SAA-C03 exam. This file helps learners understand the style of exam questions and practice with realistic AWS scenarios.",
+        "description_ar": "أسئلة تدريبية رسمية من AWS لاختبار Solutions Architect – Associate SAA-C03. يساعد هذا الملف المتدربين على فهم طريقة الأسئلة والتدرب على سيناريوهات قريبة من أسلوب الاختبار.",
+        "url": "/extra/AWS-Certified-Solutions-Architect-Associate_Sample-Questions (1).pdf",
+        "type": "pdf",
+        "badges_en": ["Official PDF", "Practice Questions"],
+        "badges_ar": ["ملف رسمي", "أسئلة تدريبية"],
+        "button_en": "Download PDF",
+        "button_ar": "تحميل الملف"
+      },
+      {
+        "id": "aws-3",
+        "title_en": "ExamTopics SAA-C03 Practice Questions",
+        "title_ar": "أسئلة تدريبية من ExamTopics لاختبار SAA-C03",
+        "description_en": "One of the popular free resources for practicing AWS SAA-C03-style questions. Use it as extra practice, but do not rely on it alone.",
+        "description_ar": "أحد المصادر المجانية المشهورة للتدرب على أسئلة بأسلوب اختبار AWS SAA-C03. استخدمه كمصدر إضافي للتدريب، لكن لا تعتمد عليه وحده.",
+        "url": "https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/view/",
+        "type": "website",
+        "badges_en": ["Website", "Free", "Practice"],
+        "badges_ar": ["موقع", "مجاني", "تدريب"],
+        "button_en": "View Resource",
+        "button_ar": "عرض المصدر"
+      },
+      {
+        "id": "aws-4",
+        "title_en": "Tutorials Dojo AWS SAA-C03 Practice Exams",
+        "title_ar": "اختبارات Tutorials Dojo لاختبار AWS SAA-C03",
+        "description_en": "A highly recommended paid practice exam resource for AWS SAA-C03 preparation. Many AWS learners and Solutions Architects recommend it because its questions are close to the exam style and include detailed explanations.",
+        "description_ar": "مصدر مدفوع ومُوصى به بقوة للتحضير لاختبار AWS SAA-C03. كثير من المتعلمين ومهندسي الحلول في AWS ينصحون به لأن أسئلته قريبة من أسلوب الاختبار وتحتوي على شروحات تفصيلية.",
+        "url": "https://portal.tutorialsdojo.com/courses/aws-certified-solutions-architect-associate-practice-exams/",
+        "type": "website",
+        "badges_en": ["Website", "Paid", "Practice Exams"],
+        "badges_ar": ["موقع", "مدفوع", "اختبارات تدريبية"],
+        "button_en": "View Resource",
+        "button_ar": "عرض المصدر"
+      }
+    ]
+  },
+  "gcp": {
+    "title_en": "Google Cloud Resources",
+    "title_ar": "مصادر Google Cloud",
+    "description_en": "Useful resources for preparing for the Google Cloud Associate Cloud Engineer certification.",
+    "description_ar": "مصادر مفيدة للتحضير لاختبار Google Cloud Associate Cloud Engineer.",
+    "resources": [
+      {
+        "id": "gcp-1",
+        "title_en": "Google Associate Cloud Engineer Question Bank",
+        "title_ar": "بنك أسئلة Google Associate Cloud Engineer",
+        "description_en": "A 216-page practice question bank for the Google Associate Cloud Engineer exam. It includes 332 multiple-choice questions with answers and explanations to support exam preparation.",
+        "description_ar": "بنك أسئلة تدريبي لاختبار Google Associate Cloud Engineer مكوّن من 216 صفحة. يحتوي على 332 سؤال اختيار من متعدد مع الإجابات والشرح للمساعدة في التحضير للاختبار.",
+        "url": "/extra/Google-Associate-Cloud-Engineer.pdf",
+        "type": "pdf",
+        "badges_en": ["PDF", "Practice Questions"],
+        "badges_ar": ["ملف PDF", "أسئلة تدريبية"],
+        "button_en": "Download PDF",
+        "button_ar": "تحميل الملف"
+      },
+      {
+        "id": "gcp-2",
+        "title_en": "GCP Additional Resources",
+        "title_ar": "مصادر إضافية لـ GCP",
+        "description_en": "A curated list of additional Google Cloud resources for Associate Cloud Engineer preparation. It includes learning paths, practice exams, official certification links, architecture resources, infrastructure guides, and database-related references.",
+        "description_ar": "قائمة مرتبة من مصادر Google Cloud الإضافية للتحضير لاختبار Associate Cloud Engineer. تشمل مسارات تعلم، اختبارات تدريبية، روابط رسمية للشهادة، مصادر معمارية، أدلة للبنية التحتية، ومراجع متعلقة بقواعد البيانات.",
+        "url": "/extra/GCP_Additional_Resources.pdf",
+        "type": "pdf",
+        "badges_en": ["PDF", "Additional Resources"],
+        "badges_ar": ["ملف PDF", "مصادر إضافية"],
+        "button_en": "Download PDF",
+        "button_ar": "تحميل الملف"
+      }
+    ]
+  }
 }
