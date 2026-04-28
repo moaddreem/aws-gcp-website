@@ -49,278 +49,452 @@
       background-image:
         linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
-      background-size: 50px 50px;
-      z-index: 1;
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 85%);
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,153,0,.08), transparent 20%),
+        radial-gradient(circle at 85% 15%, rgba(66,133,244,.10), transparent 22%);
+      filter: blur(34px);
+      z-index: -3;
     }
 
-    .container {
-      max-width: 1200px;
+    /* Dark themed scrollbars for the page, table, and long lists */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(66,133,244,.72) rgba(5,15,28,.82);
+    }
+    *::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    *::-webkit-scrollbar-track {
+      background: rgba(5,15,28,.82);
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
+    *::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      border: 3px solid rgba(5,15,28,.92);
+      background: linear-gradient(180deg, rgba(255,153,0,.9), rgba(66,133,244,.9));
+    }
+    *::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #ffb23a, #6ca1ff);
+    }
+    .table-wrap::-webkit-scrollbar-corner {
+      background: rgba(5,15,28,.9);
+    }
+
+    .wrap {
+      width: min(1320px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 2rem;
+      padding: 26px 0 42px;
+    }
+
+    .section-card {
       position: relative;
-      z-index: 2;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0 0 1rem 0;
-      background: linear-gradient(135deg, var(--aws), var(--gcp));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .header p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .provider-card {
-      background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .provider-card:hover {
-      transform: translateY(-4px);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-    }
-
-    .provider-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .provider-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: white;
-    }
-
-    .aws-icon { background: var(--aws); }
-    .gcp-icon { background: var(--gcp); }
-
-    .provider-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .feature-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .feature-item:last-child {
-      border-bottom: none;
-    }
-
-    .feature-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: white;
-    }
-
-    .aws-feature { background: var(--aws-soft); color: var(--aws); }
-    .gcp-feature { background: var(--gcp-soft); color: var(--gcp); }
-
-    .comparison-table {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
       overflow: hidden;
     }
 
-    .table-header {
-      background: var(--panel-2);
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border);
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    .table-row {
+    .hero {
       display: grid;
-      grid-template-columns: 200px 1fr 1fr;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border);
+      grid-template-columns: minmax(0, 1.16fr) minmax(290px, .84fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .hero-main { padding: 30px; }
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,153,0,.22), transparent 64%);
+      inset-inline-start: -170px; top: -220px;
+      pointer-events: none;
+    }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(66,133,244,.24), transparent 64%);
+      inset-inline-end: -170px; bottom: -220px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
       align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: var(--muted);
+      font-size: 13px;
+      direction: ltr;
+    }
+    .eyebrow .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--green); box-shadow: 0 0 0 6px rgba(52,168,83,.15); }
+
+    .title {
+      position: relative;
+      z-index: 1;
+      margin: 18px 0 12px;
+      font-size: clamp(34px, 5.8vw, 68px);
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+    .title .aws { color: var(--aws); }
+    .title .gcp { color: var(--gcp); }
+
+    .desc {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+      max-width: 820px;
     }
 
-    .table-row:last-child {
-      border-bottom: none;
+    .actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      height: 50px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .18s ease;
     }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    .btn-primary { background: linear-gradient(90deg, var(--aws), var(--gcp)); border: none; color: white; font-weight: 700; }
 
-    .table-row:hover {
-      background: var(--panel-2);
+    .stats { padding: 18px; display: grid; gap: 14px; }
+    .stat { border: 1px solid var(--border); border-radius: 24px; background: rgba(255,255,255,.04); padding: 18px; min-height: 110px; display: grid; align-content: space-between; }
+    .stat small { color: var(--muted); font-size: 13px; }
+    .stat strong { font-size: clamp(28px, 4vw, 42px); line-height: 1; }
+    .stat-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat.aws { box-shadow: inset 0 0 0 1px rgba(255,153,0,.28); }
+    .stat.gcp { box-shadow: inset 0 0 0 1px rgba(66,133,244,.32); }
+    .stat.aws strong { color: var(--aws); font-size: 22px; }
+    .stat.gcp strong { color: var(--gcp); font-size: 22px; }
+
+    .toolbar { padding: 16px; margin-bottom: 14px; }
+    .toolbar-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-end; margin-bottom: 12px; }
+    .toolbar-title { margin: 0; font-size: 22px; letter-spacing: -.03em; }
+    .toolbar-sub { margin: 5px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .count-pill { white-space: nowrap; border: 1px solid var(--border); background: rgba(255,255,255,.055); border-radius: 999px; padding: 10px 14px; color: var(--muted); font-size: 13px; }
+
+    .controls { display: grid; grid-template-columns: minmax(280px,1.5fr) minmax(200px,.8fr) minmax(200px,.8fr) auto auto; gap: 10px; }
+    .input, .select {
+      width: 100%;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.065);
+      color: var(--text);
+      padding: 0 14px;
+      font: inherit;
+      outline: none;
     }
+    .input::placeholder { color: #93a6c2; }
+    .select {
+      color-scheme: dark;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045)),
+        rgba(8,22,39,.96);
+    }
+    .select option {
+      color: #eef6ff;
+      background: #0b1b2f;
+    }
+    .select option:checked {
+      color: #ffffff;
+      background: #16457f;
+    }
+    .select option:hover {
+      color: #ffffff;
+      background: #12345f;
+    }
+    .btn-filter { height: 48px; border-radius: 16px; }
+    .btn-filter.is-active { background: rgba(255,153,0,.14); border-color: rgba(255,153,0,.42); }
 
-    .service-name {
+    .table-wrap { border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: auto; max-height: 820px; background: rgba(4,12,24,.26); }
+    table { width: 100%; min-width: 1120px; border-collapse: separate; border-spacing: 0; }
+    thead th {
+      position: sticky; top: 0; z-index: 2;
+      background: rgba(6,17,31,.96);
+      color: #dce9ff;
+      padding: 14px;
+      text-align: right;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody td { padding: 16px 14px; border-bottom: 1px solid rgba(255,255,255,.08); vertical-align: top; }
+    tbody tr:hover td { background: rgba(255,255,255,.03); }
+    .muted { color: var(--muted); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 12px; border-radius: 999px; font-weight: 700; line-height: 1.35; }
+    .badge.aws { color: #ffd9a2; background: var(--aws-soft); border: 1px solid rgba(255,153,0,.32); }
+    .badge.gcp { color: #d7e5ff; background: var(--gcp-soft); border: 1px solid rgba(66,133,244,.32); }
+    .empty { color: var(--muted-2); }
+    .desc-cell { color: #d3e0f5; line-height: 1.82; max-width: 520px; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-top: 12px; color: var(--muted-2); font-size: 13px; }
+    .foot a { color: #d9e6ff; text-decoration: none; }
+
+    /* Back Button Styles */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
       font-weight: 500;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    .back-btn:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .back-btn-icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    .back-btn:hover .back-btn-icon {
+      transform: translateX(-2px);
     }
 
-    .aws-service, .gcp-service {
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-md);
-      font-size: 0.9rem;
-      text-align: center;
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; }
+      .controls { grid-template-columns: 1fr 1fr; }
     }
-
-    .aws-service {
-      background: var(--aws-soft);
-      color: var(--aws);
-    }
-
-    .gcp-service {
-      background: var(--gcp-soft);
-      color: var(--gcp);
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 1rem; }
-      .comparison-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .header h1 { font-size: 2rem; }
-      .table-row { grid-template-columns: 1fr; gap: 0.5rem; }
-      .table-row > div { padding: 0.5rem 0; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 18px, 1320px); padding-top: 12px; }
+      .hero-main { padding: 22px; }
+      .title { font-size: clamp(30px, 11vw, 48px); }
+      .desc { font-size: 15px; line-height: 1.8; }
+      .toolbar-head, .foot { flex-direction: column; align-items: stretch; }
+      .controls, .stat-duo { grid-template-columns: 1fr; }
+      .btn, .count-pill { width: 100%; justify-content: center; }
+      
+      /* Back button mobile adjustments */
+      .back-btn {
+        top: 15px;
+        left: 15px;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      .back-btn-icon {
+        width: 14px;
+        height: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1>AWS ↔ Google Cloud Comparison</h1>
-      <p>Compare services and features between Amazon Web Services and Google Cloud Platform</p>
-    </header>
-
-    <div class="comparison-grid">
-      <div class="provider-card">
-        <div class="provider-header">
-          <div class="provider-icon aws-icon">AWS</div>
-          <h2 class="provider-name">Amazon Web Services</h2>
+  <div class="wrap">
+    <!-- Back Button -->
+    <a href="/services" class="back-btn">
+      <svg class="back-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span>العودة إلى الموقع</span>
+    </a>
+    
+    <section class="hero">
+      <article class="section-card hero-main">
+        <div class="eyebrow"><span class="dot"></span> Official comparison data • AWS + Google Cloud</div>
+        <h1 class="title">قارن خدمات <span class="aws">AWS</span> مع <span class="gcp">Google Cloud</span></h1>
+        <p class="desc">واجهة نظيفة وجاهزة للدمج داخل موقعك، مع نفس الجو البصري اللي عجبك في النسخة الأولى لكن بخلفية أحسن وأنظف. فيها بحث سريع، فلاتر، وجدول واضح يخلّي المقارنة بين خدمات أمازون وقوقل كلاود أسهل.</p>
+        <div class="actions">
+          <button class="btn btn-primary" type="button" id="startCompare">ابدأ المقارنة</button>
+          <a class="btn" href="https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison" target="_blank" rel="noopener noreferrer">المصدر الرسمي</a>
         </div>
-        <ul class="feature-list">
-          <li class="feature-item">
-            <div class="feature-icon aws-feature">✓</div>
-            <span>Largest cloud provider by market share</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon aws-feature">✓</div>
-            <span>Most comprehensive service portfolio</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon aws-feature">✓</div>
-            <span>Mature ecosystem with extensive documentation</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon aws-feature">✓</div>
-            <span>Pay-as-you-go pricing model</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="provider-card">
-        <div class="provider-header">
-          <div class="provider-icon gcp-icon">GCP</div>
-          <h2 class="provider-name">Google Cloud Platform</h2>
+      </article>
+      <aside class="section-card stats">
+        <div class="stat">
+          <small>إجمالي الصفوف</small>
+          <strong id="totalRows">0</strong>
         </div>
-        <ul class="feature-list">
-          <li class="feature-item">
-            <div class="feature-icon gcp-feature">✓</div>
-            <span>Strong in AI/ML and data analytics</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon gcp-feature">✓</div>
-            <span>Competitive pricing with sustained use discounts</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon gcp-feature">✓</div>
-            <span>Excellent networking performance</span>
-          </li>
-          <li class="feature-item">
-            <div class="feature-icon gcp-feature">✓</div>
-            <span>Modern infrastructure with global fiber network</span>
-          </li>
-        </ul>
-      </div>
-    </div>
+        <div class="stat-duo">
+          <div class="stat aws">
+            <small>AWS</small>
+            <strong>Orange</strong>
+          </div>
+          <div class="stat gcp">
+            <small>Google Cloud</small>
+            <strong>Blue</strong>
+          </div>
+        </div>
+        <div class="stat">
+          <small>آخر تحديث ظاهر في المصدر</small>
+          <strong id="updatedAt" style="font-size:22px; line-height:1.2;">—</strong>
+        </div>
+      </aside>
+    </section>
 
-    <div class="comparison-table">
-      <div class="table-header">Service Comparison</div>
-      
-      <div class="table-row">
-        <div class="service-name">Virtual Machines</div>
-        <div class="aws-service">EC2</div>
-        <div class="gcp-service">Compute Engine</div>
+    <section class="section-card toolbar" id="compareArea">
+      <div class="toolbar-head">
+        <div>
+          <h2 class="toolbar-title">مستكشف المقارنة</h2>
+          <p class="toolbar-sub">ابحث باسم الخدمة مثل EC2 أو S3 أو BigQuery، أو فلتر حسب التصنيف والنوع، أو اعرض فقط الصفوف التي فيها AWS offering.</p>
+        </div>
+        <div class="count-pill" id="countPill">0 / 0 خدمة</div>
       </div>
+      <div class="controls">
+        <input class="input" id="searchInput" type="search" placeholder="ابحث: EC2, S3, BigQuery, Lambda..." />
+        <select class="select" id="categorySelect"><option value="">كل التصنيفات</option></select>
+        <select class="select" id="typeSelect"><option value="">كل الأنواع</option></select>
+        <button class="btn btn-filter" type="button" id="awsOnlyBtn">AWS فقط</button>
+        <button class="btn btn-filter" type="button" id="resetBtn">مسح الفلاتر</button>
+      </div>
+    </section>
 
-      <div class="table-row">
-        <div class="service-name">Storage</div>
-        <div class="aws-service">S3</div>
-        <div class="gcp-service">Cloud Storage</div>
-      </div>
+    <section class="table-wrap">
+      <table aria-label="AWS and Google Cloud comparison table">
+        <thead>
+          <tr>
+            <th>Service category</th>
+            <th>Service type</th>
+            <th>AWS offering</th>
+            <th>Google Cloud product</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
 
-      <div class="table-row">
-        <div class="service-name">Databases</div>
-        <div class="aws-service">RDS</div>
-        <div class="gcp-service">Cloud SQL</div>
-      </div>
-
-      <div class="table-row">
-        <div class="service-name">Containers</div>
-        <div class="aws-service">ECS/EKS</div>
-        <div class="gcp-service">GKE</div>
-      </div>
-
-      <div class="table-row">
-        <div class="service-name">Serverless</div>
-        <div class="aws-service">Lambda</div>
-        <div class="gcp-service">Cloud Functions</div>
-      </div>
-
-      <div class="table-row">
-        <div class="service-name">CDN</div>
-        <div class="aws-service">CloudFront</div>
-        <div class="gcp-service">Cloud CDN</div>
-      </div>
+    <div class="foot">
+      <span>نسخة HTML مستقلة محسّنة بالخلفية الداكنة والقوائم والـ scrollbar، مبنية على نفس بيانات المقارنة الرسمية.</span>
+      <a href="https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison" target="_blank" rel="noopener noreferrer">فتح المصدر الرسمي</a>
     </div>
   </div>
+
+  <script>
+    const DATA = [{"id": 1, "category": "Serverless", "type": "CI/CD", "gcp": "Cloud Build", "description": "Build, test, and deploy to Google Cloud runtime environments.", "aws": "AWS CodeBuild, AWS CodeDeploy, AWS CodePipeline", "azure": "Azure DevOps, GitHub Enterprise", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 2, "category": "Container services", "type": "CI/CD", "gcp": "Cloud Deploy", "description": "Deliver continuously to services such as Google Kubernetes Engine and Cloud Run.", "aws": "AWS CodePipeline, AWS CodeDeploy", "azure": "Azure DevOps, GitHub Enterprise", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 3, "category": "Container services", "type": "Multi-cloud", "gcp": "GKE attached clusters", "description": "Extend GKE to work with existing Kubernetes clusters in other environments including AWS and Azure.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 4, "category": "Container services", "type": "Multi-cloud", "gcp": "Config Connector", "description": "Manage Google Cloud resources through Kubernetes.", "aws": "AWS Controllers for Kubernetes", "azure": "Azure Service Operator", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 5, "category": "Container services", "type": "Operating system", "gcp": "Container-Optimized OS", "description": "A Linux-based, security-optimized operating system for running in containers.", "aws": "AWS Bottlerocket", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 6, "category": "Distributed cloud", "type": "Hybrid or connected", "gcp": "Google Distributed Cloud", "description": "Extend Google Cloud infrastructure and services to the edge and your data centers, with a connection to Google Cloud.", "aws": "AWS Outposts", "azure": "Azure Stack", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 7, "category": "Distributed cloud", "type": "Air-gapped", "gcp": "Google Distributed Cloud", "description": "Extend Google Cloud infrastructure and services to the edge and your data centers, without an internet connection.", "aws": "", "azure": "Azure Stack", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 8, "category": "Serverless", "type": "Multi-cloud serverless", "gcp": "Knative serving", "description": "Flexible serverless development for multicloud environments.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 9, "category": "Container services", "type": "Service mesh", "gcp": "Cloud Service Mesh", "description": "Simplify, manage, and secure complex microservices architectures with a fully managed service.", "aws": "AWS App Mesh", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 10, "category": "Networking", "type": "Network connectivity", "gcp": "Cloud Router", "description": "Dynamically exchange routes between your Virtual Private Cloud (VPC) and on-premises networks by using Border Gateway Protocol (BGP).", "aws": "AWS Transit Gateway, AWS Direct Connect", "azure": "Azure Route Server, Azure VPN gateway, Azure ExpressRoute", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 11, "category": "Artificial intelligence & machine learning", "type": "Cloud cost optimization", "gcp": "Recommender", "description": "Optimize your Google Cloud usage with proactive, easily actionable recommendations.", "aws": "AWS Cost Optimization", "azure": "Azure Cost Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 12, "category": "Artificial intelligence & machine learning", "type": "Conversational interface", "gcp": "Dialogflow and Conversational Agents", "description": "Lifelike conversational AI with state-of-the-art virtual agents.", "aws": "Amazon Lex", "azure": "Azure Conversational AI", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 13, "category": "Artificial intelligence & machine learning", "type": "Document understanding", "gcp": "Document AI", "description": "Automate data capture at scale to reduce document processing costs.", "aws": "Amazon Textract", "azure": "Azure AI Document Intelligence", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 14, "category": "Artificial intelligence & machine learning", "type": "Image recognition", "gcp": "Vision AI", "description": "Derive insights from your images in the cloud or at the edge, or use pre-trained Vision API models to detect emotion, understand text, and more.", "aws": "Amazon Rekognition Image", "azure": "Azure Computer Vision", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 15, "category": "Artificial intelligence & machine learning", "type": "ML platform", "gcp": "Deep Learning VM Images", "description": "Preconfigured VMs for deep learning applications.", "aws": "Amazon SageMaker, Amazon EC2 P3", "azure": "Azure Data Science Virtual Machines", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 16, "category": "Artificial intelligence & machine learning", "type": "Container images", "gcp": "Deep Learning Containers", "description": "Preconfigured Docker containers for deep learning applications.", "aws": "AWS Deep Learning Containers", "azure": "Azure Machine Learning Curated Environments", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 17, "category": "Artificial intelligence & machine learning", "type": "ML platform", "gcp": "Vertex AI", "description": "Train your predictive and generative AI models at scale, host your trained model in the cloud, and use your model to make predictions about new data.", "aws": "Amazon SageMaker", "azure": "Azure AI Platform", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 18, "category": "Artificial intelligence & machine learning", "type": "ML platform", "gcp": "Vertex AI Workbench", "description": "Create instances running JupyterLab that come pre-installed with the latest data science and machine learning frameworks in a single click.", "aws": "Amazon SageMaker", "azure": "Azure Notebooks", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 19, "category": "Artificial intelligence & machine learning", "type": "Natural language processing", "gcp": "Natural Language AI", "description": "Derive insights from unstructured text using Google machine learning.", "aws": "Amazon Comprehend", "azure": "Azure Text Analytics", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 20, "category": "Artificial intelligence & machine learning", "type": "Personalization", "gcp": "Recommendations", "description": "Deliver highly personalized product recommendations at scale.", "aws": "Amazon Personalize", "azure": "Azure Personalizer", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 21, "category": "Artificial intelligence & machine learning", "type": "Speech recognition", "gcp": "Speech-to-Text", "description": "Accurately convert speech into text using an API powered by Google's AI technologies.", "aws": "Amazon Transcribe", "azure": "Azure Speech to Text", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 22, "category": "Artificial intelligence & machine learning", "type": "Speech synthesis", "gcp": "Text-to-Speech", "description": "Convert text into natural-sounding speech using an API powered by Google's AI technologies.", "aws": "Amazon Polly", "azure": "Azure Text to Speech", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 23, "category": "Artificial intelligence & machine learning", "type": "Translation", "gcp": "Translation AI", "description": "Dynamically translate between languages using general, fine-tuned, or generative models.", "aws": "Amazon Translate", "azure": "Azure Translator", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 24, "category": "Artificial intelligence & machine learning", "type": "Video intelligence", "gcp": "Video Intelligence API", "description": "Quickly categorize video content using thousands of predefined labels and creating additional custom labels to suit your specific needs.", "aws": "Amazon Rekognition Video", "azure": "Azure Video Indexer", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 25, "category": "Backup & disaster recovery", "type": "Data protection", "gcp": "Backup and DR Service", "description": "A centrally-managed backup and recovery service for Google Cloud workloads that helps protect backup data from ransomware and malicious or accidental deletion. Back up Compute Engine VMs, VMWare VMs, databases, and file systems in one place.", "aws": "AWS Backup", "azure": "Azure Backup", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 26, "category": "Compute", "type": "Core compute", "gcp": "Cloud GPUs", "description": "Train and run machine learning models faster than before.", "aws": "Amazon Elastic Compute Cloud (EC2) VM family (Trn1, Inf1, and P5)", "azure": "Azure ND VM family (H100, H200, MI300x, and others)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 27, "category": "Compute", "type": "Core compute", "gcp": "Cloud TPU", "description": "Train and run machine learning models faster than ever before.", "aws": "Amazon Elastic Compute Cloud (EC2) VM family (Trn1, Inf1, and P5)", "azure": "Azure ND VM family (H100, H200, MI300x, and others)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 28, "category": "Compute", "type": "Core compute", "gcp": "Local SSD", "description": "Support workloads that require high performance, low latency temporary storage. Local SSD disks are always-encrypted solid-state storage for Compute Engine VMs.", "aws": "AWS Nitro SSD", "azure": "NVMe disks", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 29, "category": "Compute", "type": "Core compute", "gcp": "Compute Engine", "description": "Accelerate your digital transformation with high-performance VMs.", "aws": "Amazon Elastic Compute Cloud (EC2)", "azure": "Azure Virtual Machines", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 30, "category": "Compute", "type": "Core compute", "gcp": "Compute Engine Autoscaler", "description": "Automatically create or delete virtual machines in a managed instance group (MIG) based on demand or resource utilization.", "aws": "AWS EC2 Autoscaling", "azure": "Azure Autoscale, Azure Virtual Machine Scale Sets", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 31, "category": "Compute", "type": "Core compute", "gcp": "OS Login", "description": "Use IAM to manage SSH access to your Linux VM instances without having to create and manage individual SSH keys.", "aws": "Amazon EC2 Instance Connect", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 32, "category": "Compute", "type": "Core compute", "gcp": "Google Cloud Hyperdisk", "description": "Reliable, high-performance block storage for VM instances.", "aws": "Amazon Elastic Block Store (EBS)", "azure": "Azure Managed Disks", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 33, "category": "Compute", "type": "Core compute", "gcp": "SSH-in-browser", "description": "Connect to a Compute Engine virtual machine (VM) instance using SSH with the Google Cloud console in your web browser.", "aws": "AWS EC2 Instance Connect", "azure": "Azure Bastion", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 34, "category": "Compute", "type": "Core Compute", "gcp": "VM Manager", "description": "Manage operating systems for large virtual machine (VM) fleets running Windows and Linux on Compute Engine. A fully managed offering that lets you gather OS inventory, manage patching, and check for OS compliance, including the ability to detect vulnerabilities while the VM is running.", "aws": "AWS Systems Manager", "azure": "Azure Update Manager", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 35, "category": "Compute", "type": "Operations management", "gcp": "Workload Manager evaluations", "description": "A rule-based evaluation service that scans your workloads and detects deviations from standards, rules, and best practices to improve system quality, reliability, security, and performance.", "aws": "AWS Config", "azure": "Azure Policy", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 36, "category": "Compute", "type": "Deployment", "gcp": "Workload Manager (Guided Deployment Automation)", "description": "Configure and deploy enterprise applications on Google Cloud.", "aws": "AWS Launch Wizard", "azure": "Azure Center for SAP solutions", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 37, "category": "Compute", "type": "Infrastructure modernization", "gcp": "SAP on Google Cloud", "description": "Run SAP on Google Cloud.", "aws": "SAP on AWS", "azure": "SAP on Azure", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 38, "category": "Compute", "type": "Infrastructure modernization", "gcp": "RISE with SAP", "description": "Run RISE with SAP on Google Cloud.", "aws": "SAP on AWS", "azure": "SAP on Azure", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 39, "category": "Serverless", "type": "Build", "gcp": "App Engine", "description": "Build highly scalable applications on a fully managed serverless platform.", "aws": "AWS Elastic Beanstalk", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 40, "category": "Compute", "type": "VMware connectivity", "gcp": "Google Cloud VMware Engine", "description": "A VMware-as-a-service platform that lets you migrate and run your VMware workloads on Google Cloud. It uses a global VPC design, optimizes your ownership costs, and provides high resiliency.", "aws": "VMware Cloud on AWS", "azure": "Azure VMware Solution", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 41, "category": "Container services", "type": "CaaS", "gcp": "Google Kubernetes Engine (GKE)", "description": "Secured and managed Kubernetes service with four-way autoscaling and multi-cluster support.", "aws": "Amazon Elastic Kubernetes Service (EKS)", "azure": "Azure Kubernetes Service (AKS)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 42, "category": "Artifact management", "type": "Container registry", "gcp": "Artifact Registry", "description": "Store, manage, and secure your container images.", "aws": "Amazon Elastic Container Registry (ECR), AWS CodeArtifact", "azure": "Azure Container Registry, Azure Artifacts", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 43, "category": "Container services", "type": "Container Security", "gcp": "Binary Authorization", "description": "Allows for monitoring, auditing, or enforcing a set of policies for runtime workloads, including signature validation. Binary Authorization aims to ensure that software is sourced, built, tested, and released according to internal best practices to reduce the attack surface.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 44, "category": "Container services", "type": "Gaming", "gcp": "Game Servers", "description": "Deliver seamless multiplayer gaming experiences with simpler multicluster management.", "aws": "Amazon GameLift", "azure": "Azure PlayFab Multiplayer Services", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 45, "category": "Data analytics", "type": "Business intelligence", "gcp": "Looker", "description": "Explore, share, and visualize your company's data so that you can make better business decisions.", "aws": "Amazon QuickSight", "azure": "Microsoft Power BI", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 46, "category": "Data analytics", "type": "Data discovery and metadata management", "gcp": "Knowledge Catalog", "description": "Discover, curate, manage, and trust distributed data at scale with powerful search and integration with BigQuery, Vertex AI, Cloud Storage, and operational databases. Knowledge Catalog empowers comprehensive data discovery, end-to-end lineage tracking, enhanced data quality, and robust governance.", "aws": "Amazon DataZone", "azure": "Azure Purview", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 47, "category": "Data analytics", "type": "Data integration / ETL", "gcp": "Cloud Data Fusion", "description": "Implement fully managed, cloud-first data integration at scale.", "aws": "AWS Glue", "azure": "Azure Data Factory", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 48, "category": "Data analytics", "type": "Data processing", "gcp": "Managed Service for Apache Spark", "description": "Managed Hadoop and Spark services for data engineering, data science, and machine learning.", "aws": "Amazon Elastic MapReduce (EMR), AWS Batch, AWS Glue", "azure": "Azure Data Lake Analytics, HDInsight, Azure Databricks", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 49, "category": "Data analytics", "type": "Data warehouse", "gcp": "BigQuery", "description": "Serverless, highly scalable, and cost-effective multi-cloud data warehouse designed for business agility.", "aws": "Amazon Redshift", "azure": "Azure Synapse Analytics", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 50, "category": "Data analytics", "type": "Messaging", "gcp": "Pub/Sub", "description": "A highly scalable messaging service for publishing and subscribing.", "aws": "Amazon Kinesis Data Streams, Amazon MQ", "azure": "Azure Service Bus Messaging", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 51, "category": "Data analytics", "type": "Query service", "gcp": "BigQuery", "description": "Analyze petabytes of data at scale using ANSI SQL and gain significantly lower three-year total cost of ownership (TCO) than competing cloud data warehouses.", "aws": "Amazon Athena", "azure": "Microsoft Fabric", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 52, "category": "Data analytics", "type": "Stream data ingest", "gcp": "Pub/Sub", "description": "A streaming events ingestion service that integrates with Google Cloud data analytics and other open source software frameworks such as Apache Kafka and Apache Flink.", "aws": "Amazon Kinesis Data Streams", "azure": "Azure Event Hubs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 53, "category": "Data analytics", "type": "Stream data processing", "gcp": "Dataflow", "description": "Unify stream and batch data processing that's serverless, fast, and cost-effective.", "aws": "AWS Kinesis Data Streams with Amazon Managed Service for Apache Flink", "azure": "Azure Stream Analytics", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 54, "category": "Data analytics", "type": "Workflow orchestration", "gcp": "Managed Service for Apache Airflow", "description": "Author, schedule, and monitor pipelines that span across hybrid and multi-cloud environments using this fully managed workflow orchestration service built on Apache Airflow.", "aws": "Managed Workflows for Apache Airflow", "azure": "Workflow Orchestration Manager for Azure Data Factory", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 55, "category": "Database", "type": "Document data storage", "gcp": "Firestore", "description": "Easily develop rich applications using a fully managed, scalable, and serverless document database.", "aws": "Amazon DocumentDB, Amazon DynamoDB", "azure": "Azure Cosmos DB", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 56, "category": "Database", "type": "In-memory data store", "gcp": "Memorystore", "description": "Reduce latency with scalable, secure, and highly available in-memory service for Valkey and Redis.", "aws": "Amazon ElastiCache", "azure": "Azure Cache", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 57, "category": "Database", "type": "NoSQL: Indexed", "gcp": "Datastore", "description": "A highly scalable NoSQL database for your web and mobile applications.", "aws": "Amazon DocumentDB, Amazon DynamoDB", "azure": "Azure Cosmos DB", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 58, "category": "Database", "type": "NoSQL: Key-value", "gcp": "Bigtable", "description": "Run large analytical and operational workloads using this fully managed, scalable NoSQL database service.", "aws": "Amazon DynamoDB", "azure": "Azure Cosmos DB", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 59, "category": "Database", "type": "RDBMS", "gcp": "AlloyDB for PostgreSQL", "description": "Run transactional workloads 4 times faster than standard PostgreSQL and 2 times faster than Amazon's comparable PostgreSQL service, and run analytical queries up to 100 times faster.", "aws": "Amazon Aurora", "azure": "Azure Cosmos DB for PostgreSQL, Azure SQL Database", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 60, "category": "Database", "type": "RDBMS, Multi-model", "gcp": "Spanner", "description": "Build intelligent apps using an operational and relational database that combines capabilities such as graph, key-value, and search with horizontal scalability, high global availability, and no maintenance windows.", "aws": "Amazon Aurora, Amazon DynamoDB, Amazon Keyspaces, Amazon Neptune", "azure": "Azure SQL Database, Azure Cosmos DB", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 61, "category": "Database", "type": "RDBMS", "gcp": "Cloud SQL", "description": "Manage relational data for MySQL, PostgreSQL, and SQL Server for workloads under 64 TB.", "aws": "Amazon Relational Database Service (RDS), Amazon Aurora", "azure": "Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 62, "category": "Database", "type": "Relational", "gcp": "Bare Metal Solution", "description": "Lift and shift Oracle workloads to Google Cloud.", "aws": "Amazon RDS for Oracle", "azure": "Azure Oracle Database Enterprise Edition", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 63, "category": "Developer tools", "type": "Client libraries", "gcp": "Google Cloud SDK", "description": "Tools and libraries for interacting with Google Cloud products and services.", "aws": "AWS SDKs", "azure": "Azure SDKs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 64, "category": "Developer tools", "type": "Cloud development IDE plugin", "gcp": "Cloud Code for IntelliJ", "description": "Write, debug, and deploy your cloud-based applications for IntelliJ.", "aws": "AWS Toolkit for IntelliJ", "azure": "Azure Toolkit for IntelliJ", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 65, "category": "Developer tools", "type": "Cloud development IDE plugin", "gcp": "Cloud Code for VS Code", "description": "Write, debug, and deploy your cloud-based applications for VS Code.", "aws": "AWS Toolkit for Visual Studio Code", "azure": "Azure Tools for Visual Studio Code", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 66, "category": "Developer tools", "type": "Cloud-based IDE", "gcp": "Cloud Shell", "description": "Manage your infrastructure and develop your applications from any browser.", "aws": "AWS CloudShell", "azure": "Azure Cloud Shell", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 67, "category": "Developer tools", "type": "Command-line interface (CLI)", "gcp": "Google Cloud SDK", "description": "Tools and libraries for interacting with Google Cloud products and services.", "aws": "AWS CLI", "azure": "Azure CLI", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 68, "category": "Developer tools", "type": "Error handling", "gcp": "Error Reporting", "description": "Real-time exception monitoring and alerting for your applications.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 69, "category": "Developer tools", "type": "Git Repositories", "gcp": "Cloud Source Repositories", "description": "Access fully featured, private Git repositories hosted on Google Cloud.", "aws": "AWS Code Commit", "azure": "Azure Repos", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 70, "category": "Developer tools", "type": "Job scheduling", "gcp": "Cloud Scheduler", "description": "Fully managed cron job service.", "aws": "Amazon EventBridge", "azure": "Azure Logic Apps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 71, "category": "Developer tools", "type": "No-code or low-code", "gcp": "AppSheet", "description": "Enable anyone to build business applications and automated workflows, without coding.", "aws": "", "azure": "Microsoft Power Platform", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 72, "category": "Developer tools", "type": "Asynchronous task handling", "gcp": "Cloud Tasks", "description": "Control and observe asynchronous service requests between independent applications using this zonal, execution-control service.", "aws": "Amazon Simple Queue Service (SQS), Amazon Simple Notification Service (SNS), Amazon Eventbridge", "azure": "Azure Service Bus, Azure Queue Storage", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 73, "category": "Enterprise", "type": "Abuse prevention", "gcp": "reCAPTCHA Enterprise", "description": "Help protect your website from fraudulent activity, spam, and abuse without creating friction.", "aws": "AWS WAF CAPTCHA, AWS Fraud", "azure": "Microsoft Dynamics Fraud", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 74, "category": "Enterprise", "type": "Marketplace", "gcp": "Google Cloud Marketplace", "description": "Scale procurement for your enterprise using online discovery. Purchase enterprise-grade cloud solutions directly or through partners.", "aws": "AWS Marketplace", "azure": "Azure Marketplace", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 75, "category": "Enterprise", "type": "Solutions catalog", "gcp": "Service Catalog", "description": "Control internal enterprise solutions and make them easily discoverable.", "aws": "AWS Service Catalog", "azure": "Azure Marketplace, Azure Managed Applications, Private ARM Template Gallery", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 76, "category": "Government services", "type": "Regulated services", "gcp": "Assured Workloads", "description": "Run more secure and compliant workloads on Google Cloud.", "aws": "AWS GovCloud", "azure": "Azure Government", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 77, "category": "Management tools", "type": "API management", "gcp": "API Gateway", "description": "Develop, deploy, secure, and manage APIs with a fully managed gateway.", "aws": "Amazon API Gateway", "azure": "Azure API Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 78, "category": "API management", "type": "API management platform", "gcp": "Apigee", "description": "Design, secure, analyze, and scale APIs anywhere with visibility and control.", "aws": "Amazon Publisher Services, Mobile Ads", "azure": "Azure API Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 79, "category": "API management", "type": "Monetization", "gcp": "Apigee API Monetization", "description": "Create new revenue streams with flexible ways to monetize your APIs.", "aws": "", "azure": "Azure API Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 80, "category": "API management", "type": "Portals", "gcp": "Apigee integrated portals", "description": "Support for several developer portal solutions, ranging from simple turn-key solutions to solutions that are fully customizable and extensible.", "aws": "Amazon API Gateway", "azure": "Azure API Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 81, "category": "API management", "type": "API security", "gcp": "Advanced API Security", "description": "Help protect your APIs from security threats, including attacks from malicious clients and abuse.", "aws": "", "azure": "Azure Defender", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 82, "category": "API management", "type": "API portfolio management", "gcp": "Apigee API hub", "description": "Manage, govern, and observe all your APIs in one place.", "aws": "", "azure": "API Center", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 83, "category": "Media", "type": "AI", "gcp": "Video AI", "description": "Enable powerful content discovery and engaging video experiences.", "aws": "Amazon Rekognition Video", "azure": "Azure Video Analyzer for Media", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 84, "category": "Media", "type": "Encoding and streaming", "gcp": "Live Stream API", "description": "Encode and transform live video content for use across a variety of user devices.", "aws": "AWS MediaLive", "azure": "Azure Media Services", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 85, "category": "Media", "type": "Encoding and streaming", "gcp": "Transcoder API", "description": "Convert video files and package them for optimized delivery to web, mobile, and connected TVs.", "aws": "AWS Media Convert", "azure": "Azure Media Services", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 86, "category": "Media", "type": "Monetization", "gcp": "Video Stitcher API", "description": "Dynamically insert content and ads for targeted personalization of video-on-demand (VOD) and live content.", "aws": "AWS MediaTailor", "azure": "Azure Media Services, Azure Video Indexer", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 87, "category": "Migration", "type": "Container migration", "gcp": "Migrate to Containers", "description": "Simplifies and accelerates application modernization by intelligently extracting and migrating applications to run on containers in GKE.", "aws": "AWS App2Container", "azure": "Azure Migrate: App Containerization", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 88, "category": "Migration", "type": "Server migration", "gcp": "Migrate to Virtual Machines", "description": "Migrate VM instances, disks, and images to Google Cloud from AWS, Azure, and VMware.", "aws": "AWS Server Migration Service", "azure": "Azure Migrate", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 89, "category": "Migration", "type": "Storage migration", "gcp": "Storage Transfer Service", "description": "Complete large-scale online data transfers from online and on-premises sources to Cloud Storage.", "aws": "AWS Storage Gateway, AWS DataSync", "azure": "Azure Data Factory, Azure Storage Mover", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 90, "category": "Migration", "type": "Storage migration", "gcp": "Transfer Appliance", "description": "Securely migrate large volumes of data to Google Cloud through physical shipments of large-capacity and cost-efficient storage transfer appliances.", "aws": "AWS Snowcone, AWS Snowball, AWS Snowmobile", "azure": "Azure Data Box", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 91, "category": "Networking", "type": "CDN", "gcp": "Cloud CDN", "description": "Serve web and HTTP(S) content globally and in a secure manner using the low-latency, global Google Front End (GFE).", "aws": "Amazon CloudFront", "azure": "Azure Front Door", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 92, "category": "Networking", "type": "CDN", "gcp": "Media CDN", "description": "Deliver exceptional media content through Google's planet-scale cache network.", "aws": "Amazon CloudFront", "azure": "Azure Front Door", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 93, "category": "Networking", "type": "Domains and DNS", "gcp": "Cloud DNS", "description": "Publish your zones and records in DNS without the burden of managing your own DNS servers and software.", "aws": "Amazon Route 53", "azure": "Azure DNS", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 94, "category": "Networking", "type": "WAF and DDoS", "gcp": "Google Cloud Armor", "description": "Help protect your applications and websites against denial of service and web attacks.", "aws": "AWS WAF, AWS Shield", "azure": "Azure Web Application Firewall (WAF)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 95, "category": "Networking", "type": "WAF and DDoS", "gcp": "Google Cloud Armor Enterprise", "description": "Help protect your applications and websites against advanced denial of service and web attacks.", "aws": "AWS Shield Advanced", "azure": "Azure DDoS Protection", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 96, "category": "Networking", "type": "Firewall", "gcp": "Cloud Next Generation Firewall Enterprise (NGWF)", "description": "Protect your workloads from threats and malicious attacks including intrusion prevention service with TLS decryption, protecting from malware, spyware, and command-and-control attacks on your network.", "aws": "AWS Network Firewall with Suricata", "azure": "Azure Firewall premium", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 97, "category": "Networking", "type": "Firewall", "gcp": "Cloud Next Generation Firewall Standard", "description": "Use advanced firewall rules that simplify policy configuration and micro-segmentation to protect your cloud infrastructure and workloads.", "aws": "AWS Network Firewall", "azure": "Azure Firewall", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 98, "category": "Networking", "type": "Firewall", "gcp": "Cloud Next Generation Firewall Essentials", "description": "Use global network firewall policies and regional network firewall policies to achieve a zero-trust network posture using a fully-distributed, cloud-first firewall service.", "aws": "AWS Network Firewall", "azure": "Azure Firewall", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 99, "category": "Networking", "type": "Firewall", "gcp": "Cloud Intrusion Detection System (Cloud IDS)", "description": "Detect network-based threats such as malware, spyware, and command-and-control attacks.", "aws": "Packet Mirroring with 3P", "azure": "Packet Mirroring with 3P", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 100, "category": "Networking", "type": "Load balancing", "gcp": "Cloud Load Balancing", "description": "Efficiently distribute network traffic across Compute Engine, Google Kubernetes Engine, serverless applications, and multi-cloud services.", "aws": "Elastic Load Balancing, AWS Application Load Balancer", "azure": "Azure Load Balancer", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 101, "category": "Networking", "type": "Network connectivity", "gcp": "Cloud Interconnect", "description": "Extend your on-premises network to Google's network through a highly available, low-latency connection. You can use Dedicated Interconnect to connect directly to Google or use Partner Interconnect to connect to Google through a supported service provider.", "aws": "AWS Direct Connect", "azure": "Azure ExpressRoute", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 102, "category": "Networking", "type": "Network connectivity", "gcp": "Cloud VPN", "description": "Connect your peer network to your Virtual Private Cloud (VPC) network through an IPsec VPN connection.", "aws": "AWS Virtual Private Network (VPN)", "azure": "Azure Virtual Private Network (VPN)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 103, "category": "Networking", "type": "Network connectivity", "gcp": "Network Connectivity Center", "description": "Reimagine how you deploy, manage, and scale your networks on Google Cloud and beyond.", "aws": "Amazon Cloud WAN, AWS Transit Gateway", "azure": "Azure Virtual WAN, Azure Virtual Network Manager", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 104, "category": "Networking", "type": "Network connectivity", "gcp": "Private Service Connect", "description": "Create a private and secure connection from your VPCs to Google, third parties, or your own services.", "aws": "AWS PrivateLink", "azure": "Azure Private Link", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 105, "category": "Networking", "type": "Network monitoring", "gcp": "Network Intelligence Center", "description": "Centralize your network monitoring functions to verify network configurations, optimize network performance, increase network security, and reduce troubleshooting time.", "aws": "AWS Network Manager", "azure": "Azure Network Watcher", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 106, "category": "Networking", "type": "Premium networking", "gcp": "Network Service Tiers, Premium Tier", "description": "High-performing network experience using Google's global network.", "aws": "AWS Global Accelerator", "azure": "Internet egress (routed over the premium Microsoft global network)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 107, "category": "Networking", "type": "Premium networking", "gcp": "Network Service Tiers, Standard Tier", "description": "Cost-effective network for data transfers with performance that is comparable to the internet.", "aws": "AWS data transfer", "azure": "Internet egress (routed over the public Internet (ISP network)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 108, "category": "Networking", "type": "Services discovery (DNS)", "gcp": "Service Directory", "description": "Publish, discover, and connect services from a single directory.", "aws": "AWS Cloud Map", "azure": "Hashicorp Consul Service on Azure", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 109, "category": "Networking", "type": "Virtual networks", "gcp": "Cloud NAT", "description": "Provides managed network address translation service for Google Kubernetes Engine clusters or Compute Engine VMs to reach external or internal IP destinations from Google Cloud.", "aws": "AWS NAT Gateways", "azure": "Azure NAT Gateway", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 110, "category": "Networking", "type": "Virtual networks", "gcp": "Virtual Private Cloud (VPC)", "description": "Provide managed networking functionality for your cloud-based services running on Compute Engine VM instances, Google Kubernetes Engine, App Engine flexible environment instances, and other Google Cloud products built on Compute Engine VMs.", "aws": "Amazon Virtual Private Cloud (VPC)", "azure": "Azure Virtual Network (VNet)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 111, "category": "Operations", "type": "Audit logging", "gcp": "Cloud Audit Logs", "description": "Log all user activity on Google Cloud.", "aws": "AWS CloudTrail", "azure": "Azure Activity logs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 112, "category": "Operations", "type": "Logging", "gcp": "Cloud Logging", "description": "Manage logging and analysis in real time at scale.", "aws": "Amazon CloudWatch Logs", "azure": "Azure Monitor Logs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 113, "category": "Operations", "type": "Monitoring", "gcp": "Cloud Monitoring", "description": "Monitor the performance, availability, and health of your applications and infrastructure.", "aws": "Amazon CloudWatch", "azure": "Azure Monitor", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 114, "category": "Operations", "type": "Performance tracing", "gcp": "Cloud Trace", "description": "Find performance bottlenecks in production.", "aws": "AWS Application Signals", "azure": "Application Insights", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 115, "category": "Operations", "type": "Profiling", "gcp": "Cloud Profiler", "description": "Understand resource consumption in your code and see the ways the code is actually called.", "aws": "Amazon CodeGuru Profiler", "azure": "Azure Monitor Application Insights Profiler", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 116, "category": "Security & identity", "type": "Certificate management", "gcp": "Certificate Authority Service", "description": "Simplify the deployment and management of private certificate authorities without managing infrastructure.", "aws": "AWS Private Certificate Authority (AWS Private CA)", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 117, "category": "Security & identity", "type": "CIAM", "gcp": "Identity Platform", "description": "Add Google-grade identity and access management to your apps.", "aws": "Amazon Cognito", "azure": "Azure Active Directory B2C", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 118, "category": "Security & identity", "type": "Cloud provider access management", "gcp": "Access Transparency and Access Approval", "description": "Help expand visibility and control over your cloud provider with admin access logs and approval controls. Claims no access to customer data, even by request.", "aws": "Metadata access is logged using a Support Role in CloudTrail.", "azure": "Customer Lockbox for Microsoft Azure", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 119, "category": "Security & identity", "type": "Container security", "gcp": "Artifact Analysis", "description": "Perform vulnerability scans on container images in Artifact Registry and Container Registry, and monitor vulnerability information to keep it up to date.", "aws": "Amazon ECR Image Scanning", "azure": "Azure Defender for container registries", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 120, "category": "Security & identity", "type": "Data loss prevention (DLP)", "gcp": "Sensitive Data Protection (including the DLP API)", "description": "Discover, classify, and help protect your most sensitive cloud data.", "aws": "Amazon Macie, Amazon Bedrock Guardrails", "azure": "Microsoft Purview", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 121, "category": "Security & identity", "type": "Encryption", "gcp": "Confidential Computing", "description": "Encrypt data in-use with Confidential VM and Confidential Google Kubernetes Engine Nodes.", "aws": "AWS Nitro Enclaves", "azure": "Azure Confidential Computing", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 122, "category": "Security & identity", "type": "Exfiltration prevention", "gcp": "VPC Service Controls", "description": "Isolate resources of multi-tenant Google Cloud services to help mitigate data exfiltration risks.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 123, "category": "Security & identity", "type": "Key management", "gcp": "Cloud KMS and Cloud HSM", "description": "Host encryption keys and perform cryptographic operations in a cluster of FIPS 140-2 Level 3 certified hardware security modules (HSMs).", "aws": "AWS KMS", "azure": "Azure Key Vault", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 124, "category": "Security & identity", "type": "Key management", "gcp": "Cloud KMS and Cloud External Key Manager (Cloud EKM)", "description": "Use keys that you manage within a supported external key management partner to protect data within Google Cloud.", "aws": "AWS KMS with AWS External Key Store (XKS), AWS CloudHSM with custom key store", "azure": "Azure Managed HSM", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 125, "category": "Security & identity", "type": "IAM", "gcp": "Cloud Identity", "description": "A unified identity, access, app, and endpoint management (IAM/EMM) platform.", "aws": "AWS IAM Identity Center", "azure": "Microsoft Entra ID (Azure AD)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 126, "category": "Security & identity", "type": "IAM", "gcp": "Identity and Access Management (IAM)", "description": "Provide fine-grained access control and visibility for centrally managing resources.", "aws": "Amazon Identity and Access Management", "azure": "Azure Identity Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 127, "category": "Security & identity", "type": "IAM", "gcp": "Identity-Aware Proxy (IAP)", "description": "Use identity and context to help enable secure access to web applications and services.", "aws": "AWS Application Load Balancer with Cognito and Verified Access", "azure": "Azure App Gateway with Entra ID and Application Proxy", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 128, "category": "Security & identity", "type": "IAM", "gcp": "Identity-Aware Proxy (IAP) TCP forwarding", "description": "Use identity and context to help enable secure SSH and RDP access to VMs in Google Cloud and other clouds.", "aws": "AWS Session Manager", "azure": "Azure Bastion Hosts", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 129, "category": "Security & identity", "type": "IAM", "gcp": "Managed Service for Microsoft Active Directory", "description": "Use a highly available, hardened service running actual Microsoft Active Directory (AD).", "aws": "AWS Managed Microsoft AD", "azure": "Azure Active Directory Domain Services", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 130, "category": "Security & identity", "type": "Resource access management", "gcp": "Organization Policy Service", "description": "Configure restrictions on how resources can be used.", "aws": "AWS Config", "azure": "Azure Policy", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 131, "category": "Security & identity", "type": "Resource monitoring", "gcp": "Cloud Asset Inventory", "description": "View, monitor, and analyze all your Google Cloud and Google Kubernetes Engine assets (including on other clouds and on-premises networks), across the projects and services that use this metadata inventory service.", "aws": "AWS Config", "azure": "Azure Resource Graph", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 132, "category": "Security & identity", "type": "Resource monitoring", "gcp": "Resource Manager", "description": "Hierarchically manage resources by project, folder, and organization.", "aws": "AWS Organizations", "azure": "Azure Resource Manager", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 133, "category": "Security & identity", "type": "SIEM", "gcp": "Google Security Operations SIEM", "description": "Normalizes, indexes, correlates, and analyzes security and network data to provide instant analysis and context on risky activity.", "aws": "Amazon Security Lake", "azure": "Microsoft Sentinel", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 134, "category": "Security & identity", "type": "SOAR", "gcp": "Google Security Operations SOAR", "description": "A platform that is designed to help organizations detect, investigate, and respond to security threats in real time.", "aws": "", "azure": "Microsoft Sentinel", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 135, "category": "Security & identity", "type": "Secret management", "gcp": "Secret Manager", "description": "Store API keys, passwords, certificates, and other sensitive data.", "aws": "AWS Secrets Manager, AWS Systems Manager Parameter Store", "azure": "Azure Key Vault", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 136, "category": "Security & identity", "type": "Key management", "gcp": "Cloud Key Management Service (Cloud KMS)", "description": "Manage encryption keys on Google Cloud.", "aws": "AWS Key Management Service (KMS)", "azure": "Azure Key Vault", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 137, "category": "Security & identity", "type": "Security and risk management", "gcp": "Security Command Center", "description": "Security and risk management platform for Google Cloud.", "aws": "Amazon Guard Duty, AWS Security Hub, AWS Audit Manager, AWS Config", "azure": "Microsoft Defender for Cloud", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 138, "category": "Security & identity", "type": "Zero trust & secure enterprise browser", "gcp": "Chrome Enterprise Premium", "description": "Enable secure access to critical applications and services, with integrated threat and data protection.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 139, "category": "Serverless", "type": "Build", "gcp": "Cloud Storage for Firebase", "description": "Store and serve user-generated content from Firebase apps, such as photos or videos, including bandwidth-friendly transactions and automated ML, synced automatically in real time.", "aws": "AWS Amplify Storage", "azure": "Azure Blob Storage", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 140, "category": "Serverless", "type": "Build", "gcp": "Firebase Authentication", "description": "Sign in users to your Firebase app, either by using FirebaseUI as a complete drop-in authentication solution, or by using the Firebase Authentication SDK to manually integrate one or several sign-in methods.", "aws": "Amazon Cognito", "azure": "Azure App Service authentication (Easy Auth)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 141, "category": "Serverless", "type": "Build", "gcp": "Firebase App Hosting", "description": "Provides fast and secure hosting for your Firebase web app, static and dynamic content, and microservices, including a generous free tier.", "aws": "AWS Amplify Hosting", "azure": "GitHub Pages, Static Web Apps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 142, "category": "Serverless", "type": "Fully managed app platform", "gcp": "Cloud Run", "description": "Develop and deploy highly scalable containerized applications on a fully managed serverless platform.", "aws": "AWS App Runner, AWS Fargate, AWS Lambda", "azure": "Azure Container Apps, Azure Container Instances", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 143, "category": "Serverless", "type": "Engage", "gcp": "Firebase Cloud Messaging", "description": "Send and receive notifications across platforms with this reliable and battery-efficient connection between your server and devices, including iOS, Android, and the web.", "aws": "Amazon Device Messaging (ADM), Amazon Simple Notification Service (SNS)", "azure": "Azure Notification Hubs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 144, "category": "Serverless", "type": "Engage", "gcp": "Firebase Messaging Campaigns (Firebase Cloud Messaging or Firebase In-App Messaging)", "description": "Engage active users of your Firebase application by sending them targeted, contextual messages to complete key actions, such as beating a game level, buying an item, or subscribing to content.", "aws": "Amazon Simple Notification Service (SNS)", "azure": "Azure Notification Hubs", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 145, "category": "Serverless", "type": "Engage", "gcp": "Firebase Remote Config", "description": "Control and optimize your app on the fly.", "aws": "AWS AppConfig", "azure": "Azure App Configuration", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 146, "category": "Serverless", "type": "Engage", "gcp": "Google Analytics for Firebase", "description": "Make informed decisions regarding application marketing and performance optimizations by understanding user behavior using the Firebase SDK and integration with the Google ecosystem.", "aws": "AWS Amplify, Amazon Pinpoint, Amazon Kinesis", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 147, "category": "Serverless", "type": "Event handling", "gcp": "Eventarc", "description": "Asynchronously deliver events from Google services, SaaS, and your own apps using loosely coupled services that react to state changes.", "aws": "AWS EventBridge", "azure": "Azure Event Grid", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 148, "category": "Serverless", "type": "FaaS", "gcp": "Cloud Run functions", "description": "Run your code with zero server management with this scalable, pay-as-you-go functions-as-a-service (FaaS) offering.", "aws": "AWS Lambda", "azure": "Azure Functions Serverless Compute", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 149, "category": "Serverless", "type": "FaaS", "gcp": "Cloud Functions for Firebase", "description": "Run backend code for your Firebase applications in response to events that are triggered by Firebase and Google Cloud features, without managing servers.", "aws": "AWS Lambda", "azure": "Azure Functions Serverless Compute", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 150, "category": "Serverless", "type": "Release & monitor", "gcp": "Firebase App Distribution", "description": "Distribute your Firebase apps to trusted testers quickly and easily.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 151, "category": "Serverless", "type": "Release & monitor", "gcp": "Firebase Crashlytics", "description": "Get real-time, actionable insight into Firebase application issues with this native crash reporting solution for iOS, Android, and Unity, including streaming data export.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 152, "category": "Serverless", "type": "Release & monitor", "gcp": "Firebase Performance Monitoring", "description": "Gain insight into your app's performance issues.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 153, "category": "Serverless", "type": "Release & monitor", "gcp": "Firebase Test Lab", "description": "Test your Firebase application on devices hosted in a Google data center.", "aws": "AWS Device Farm", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 154, "category": "Serverless", "type": "Workflow orchestration", "gcp": "Workflows", "description": "Orchestrate and automate Google Cloud and HTTP-based API services with serverless workflows.", "aws": "AWS Step Functions", "azure": "Azure Logic Apps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 155, "category": "Storage", "type": "Block storage", "gcp": "Google Cloud Hyperdisk", "description": "Store data from VM instances running in Compute Engine or GKE with Google Cloud's state-of-the-art block storage offering.", "aws": "Amazon Elastic Block Store (EBS)", "azure": "Azure Disk Storage", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 156, "category": "Storage", "type": "File storage", "gcp": "Filestore", "description": "Provide fully managed NFS file servers on Google Cloud for applications running on Compute Engine VMs instances or GKE clusters.", "aws": "Amazon Elastic File System (EFS)", "azure": "Azure Files", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 157, "category": "Storage", "type": "Object storage", "gcp": "Cloud Storage", "description": "Store any amount of data and retrieve it as often as you'd like, using Google Cloud's object storage offering.", "aws": "AWS Simple Storage Service (S3)", "azure": "Azure Blob Storage", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 158, "category": "Serverless", "type": "Release & monitor", "gcp": "Firebase App Check", "description": "Help protect your API resources from abuse by preventing unauthorized clients from accessing your backend resources.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 159, "category": "Security & Identity", "type": "IAM", "gcp": "Workload Identity Federation", "description": "Use an external identity provider (IdP) to authenticate and authorize your users using IAM, so that your users can access Google Cloud services.", "aws": "AWS Identity and Access Management Roles Anywhere", "azure": "Workload identity federation in Microsoft Entra Workload ID", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 160, "category": "Data analytics", "type": "Stream data processing", "gcp": "Datastream", "description": "Synchronize data reliably, and with minimal latency, using a serverless change data capture (CDC) and replication service.", "aws": "AWS Database Migration Service, Amazon Aurora zero-ETL integration with Amazon Redshift, AWS Glue", "azure": "Azure Data Factory", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 161, "category": "iPaaS", "type": "Integration platform", "gcp": "Application Integration and Integration Connectors", "description": "An Integration Platform as a Service (iPaaS) that automates business processes by connecting any application with point-and-click configurations.", "aws": "Amazon AppFlow", "azure": "Azure Logic Apps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 162, "category": "Data analytics", "type": "Data processing", "gcp": "Dataform", "description": "Develop and operationalize scalable data transformations pipelines in BigQuery using SQL.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 163, "category": "Web proxy", "type": "Egress security", "gcp": "Secure Web Proxy", "description": "Helps you secure egress HTTP(S) traffic as a proxy service.", "aws": "", "azure": "Azure Firewall Explicit proxy (preview)", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 164, "category": "Networking", "type": "Wireless networking", "gcp": "Spectrum Access System (SAS)", "description": "Control spectrum access for a Citizens Broadband Radio Service Device (CBSD).", "aws": "AWS Private 5G", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 165, "category": "Security", "type": "User protection services", "gcp": "Web Risk", "description": "Let your client applications check URLs against Google's frequently-updated lists of unsafe web resources.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 166, "category": "Networking", "type": "Wireless networking", "gcp": "Telecom Network Automation", "description": "Deliver carrier-grade, Kubernetes-based, multi-cloud, multi-vendor, and built-in cloud intent automation through common automation templates.", "aws": "AWS Telco Network Builder", "azure": "Azure for Operators", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 167, "category": "Security", "type": "Security and risk management", "gcp": "Mandiant Attack Surface Management", "description": "Discover and analyze your internet assets across dynamic, distributed, and shared environments.", "aws": "", "azure": "Microsoft Defender External Attack Surface Management", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 168, "category": "Compute", "type": "Workload orchestration", "gcp": "Batch", "description": "A fully managed service that lets you schedule, queue, and run batch processing workloads for VMs or containers on Google Cloud at scale.", "aws": "AWS Batch", "azure": "Azure Batch", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 169, "category": "Security & Identity", "type": "Encryption", "gcp": "Confidential Space", "description": "A Trusted Execution Environment (TEE) for secure multi-party collaboration that lets organizations preserve the confidentiality and ownership of their data.", "aws": "AWS Nitro Enclaves", "azure": "Confidential Containers on AKS", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 170, "category": "Container Services", "type": "Container configuration management", "gcp": "Config Sync", "description": "A managed GitOps solution to deploy configs and applications across multiple clusters from a source of truth.", "aws": "", "azure": "Azure Arc for GitOps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 171, "category": "Security & Identity", "type": "Software supply chain", "gcp": "Assured Open Source Software (Assured OSS)", "description": "Enable users of open source software to incorporate the same trusted OSS packages that Google uses into their own developer workflows.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 172, "category": "Storage", "type": "File storage", "gcp": "Parallelstore", "description": "A fully managed, low-latency distributed file system designed to meet the demands of AI and ML training, high performance computing (HPC), and other data-intensive applications.", "aws": "Amazon FSx for Lustre", "azure": "Azure Managed Lustre", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 173, "category": "Backup & disaster recovery", "type": "Data Protection", "gcp": "Backup for GKE", "description": "A service for backing up and restoring workloads in GKE clusters.", "aws": "", "azure": "AKS backup", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 174, "category": "Management tools", "type": "Mobile tools", "gcp": "Google Cloud App", "description": "Monitor, manage, and troubleshoot your cloud resources from your Android or iOS devices. Receive alerts and respond to production issues from anywhere.", "aws": "AWS Console Mobile Application", "azure": "Azure mobile app", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 175, "category": "Artificial intelligence & machine learning", "type": "Search assistance", "gcp": "Vertex AI Search for retail", "description": "Provide search, browsing, conversational search, and recommendations to your ecommerce applications, helping to increase revenue on each visit and reducing search abandonment.", "aws": "Amazon Lex for Retail, Amazon Personalize, Amazon Cloud Search", "azure": "Dynamics 365 Commerce, Azure AI Search", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 176, "category": "Artificial intelligence & machine learning", "type": "Job search assistance", "gcp": "Cloud Talent Solution", "description": "Power your job search and candidate matching solutions with built-in machine learning algorithms.", "aws": "", "azure": "AI Talent Search", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 177, "category": "Artificial intelligence & machine learning", "type": "Customer engagement support", "gcp": "Customer Experience Insights", "description": "Analyze customer conversations with topic modeling, sentiment analysis, and automatic conversation scoring to gain insights like emerging trends and pain points.", "aws": "Contact Lens", "azure": "Dynamics 365 Customer Service", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 178, "category": "Serverless", "type": "Database", "gcp": "Firebase Data Connect", "description": "Store and query data with secured, serverless GraphQL APIs to build and scale your apps using a fully managed PostgreSQL database that is powered by Cloud SQL.", "aws": "AWS AppSync", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 179, "category": "Generative AI services", "type": "AI coding assistant", "gcp": "Gemini Code Assist", "description": "AI-powered assistance to help your development team build, deploy, and operate applications throughout the software development lifecycle.", "aws": "Amazon Q Developer", "azure": "GitHub Copilot", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 180, "category": "Generative AI services", "type": "AI-powered assistant", "gcp": "Gemini for Google Cloud", "description": "Help you be more productive and creative as your writing and coding assistant, creative designer, expert adviser, or data analyst.", "aws": "Amazon Q Business", "azure": "Azure Copilot", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 181, "category": "Management tools", "type": "Management tools", "gcp": "Config Connector (KCC)", "description": "An open source Kubernetes add-on that lets you manage Google Cloud resources through Kubernetes.", "aws": "AWS Controllers for Kubernetes (ACK)", "azure": "Azure Service Operator", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 182, "category": "Generative AI services", "type": "Model deployment", "gcp": "Vertex AI Studio", "description": "Rapidly prototype and test generative AI models.", "aws": "AWS App Studio", "azure": "Azure AI Studio", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 183, "category": "Security", "type": "Cloud provider access management", "gcp": "Key Access Justifications", "description": "View logged justifications for each access request to Cloud KMS keys and optionally set a policy to authorize key access requests based on the provided justification code.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 184, "category": "Developer tools", "type": "SAP development", "gcp": "ABAP SDK for Google Cloud (on-premises or any cloud edition)", "description": "An on-premises or any cloud edition of ABAP SDK for Google Cloud that brings the power of Google Cloud to SAP developers in the ABAP programming language.", "aws": "AWS SDK for SAP ABAP", "azure": "ABAP SDK for Azure", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 185, "category": "Developer tools", "type": "SAP development", "gcp": "ABAP SDK for Google Cloud (SAP BTP Edition)", "description": "The SAP BTP edition of ABAP SDK for Google Cloud that brings the power of Google Cloud to SAP developers in the ABAP programming language.", "aws": "AWS SDK for SAP ABAP (BTP Edition)", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 186, "category": "Developer tools", "type": "SAP development", "gcp": "Vertex AI SDK for ABAP", "description": "Let SAP developers seamlessly interact with Google's Vertex AI platform programmatically using ABAP.", "aws": "AI SDK for SAP ABAP", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 187, "category": "Artificial intelligence & machine learning", "type": "ML platform", "gcp": "Vertex AI Vision", "description": "An AI-powered platform to ingest, analyze, and store video streaming data.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 188, "category": "Artificial intelligence & machine learning", "type": "Customer service, contact center", "gcp": "Gemini Enterprise for Customer Experience", "description": "An end-to-end customer experience application with industry leading conversational AI that delivers self-service, human agents assistance, and valuable operational insights.", "aws": "Amazon Connect", "azure": "Microsoft Dynamics 365 Contact Center", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 189, "category": "Artificial intelligence & machine learning", "type": "Machine learning models", "gcp": "Vertex AI Model Garden", "description": "A curated repository of foundational, open source, and fine-tunable models from Google and Google partners.", "aws": "AWS JumpStart with Amazon Bedrock", "azure": "Azure AI model catalog", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 190, "category": "Storage", "type": "File storage", "gcp": "Google Cloud NetApp Volumes", "description": "A fully managed, cloud-based data storage service that provides advanced data management capabilities and highly scalable performance to support SAP, SMB, and Linux based applications.", "aws": "Amazon FSx for NetApp ONTAP", "azure": "Azure NetApp Files", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 191, "category": "Security", "type": "Managed threat hunting", "gcp": "Mandiant Threat Defense", "description": "Offer continuous threat hunting conducted by specialized Mandiant experts, seamlessly integrating with your Google Security Operations and multicloud data sources.", "aws": "", "azure": "Microsoft Defender Experts for Hunting", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 192, "category": "Migration", "type": "Data transfer", "gcp": "BigQuery Data Transfer Service", "description": "Automate secured data movement from data sources (including Cloud Storage, Amazon S3, Azure Blob Storage, and Salesforce) into BigQuery on a scheduled or on-demand basis.", "aws": "AWS Appflow", "azure": "Azure Data Factory", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 193, "category": "Migration", "type": "Migration platform", "gcp": "Google Cloud Migration Center", "description": "A unified platform that helps you discover and assess source resources migrations from on-premises or cloud environments to Google Cloud.", "aws": "AWS Migration Hub", "azure": "Azure Migrate", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 194, "category": "API management", "type": "Self-hosted lightweight API management", "gcp": "Cloud Endpoints", "description": "An API management system that helps you secure, monitor, analyze, and set quotas on your APIs using the same infrastructure that Google uses for its own APIs.", "aws": "Amazon API Gateway", "azure": "Self-hosted gateway in Azure API Gateway", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 195, "category": "Developer tools", "type": "Repository", "gcp": "Secure Source Manager", "description": "A regionally deployed, single-tenant managed source code repository hosted on Google Cloud that is designed to be highly secure.", "aws": "AWS CodeCommit", "azure": "Azure Repos", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 196, "category": "Identity", "type": "IAM", "gcp": "Access Context Manager", "description": "Configure access levels that map to a policy which is defined on request attributes. You can use these access levels with Identity-Aware Proxy, Identity-Aware Proxy for TCP, VPC Service Controls, and more.", "aws": "", "azure": "Conditional Access", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 197, "category": "Artificial intelligence & machine learning", "type": "Customer support assistance", "gcp": "Google Cloud Contact Center as a Service (CCaaS)", "description": "An AI-driven Contact Center as a Service (CCaaS) platform that queues and routes customer interactions across voice and digital channels.", "aws": "AWS Connect", "azure": "Microsoft Dynamics Contact Center", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 198, "category": "Artificial intelligence & machine learning", "type": "Search as a service", "gcp": "Vertex AI Search", "description": "Build a Google-quality search app on data that you control.", "aws": "Amazon Kendra, Amazon Bedrock Knowledge Bases", "azure": "Azure AI Search", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 199, "category": "Artificial intelligence & machine learning", "type": "ML applications", "gcp": "Vertex AI RAG Engine", "description": "Facilitates Retrieval-Augmented Generation (RAG) and developing context-augmented large language model (LLM) applications.", "aws": "Amazon Bedrock Knowledge Bases", "azure": "Azure AI Language", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 200, "category": "Serverless apps", "type": "Artificial intelligence & machine learning", "gcp": "Vertex AI in Firebase", "description": "Build generative AI features securely and directly into your mobile and web apps by calling the Gemini API in Vertex AI from the client side of your iOS, Android, web, and Flutter apps.", "aws": "", "azure": "Azure AI Studio", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 201, "category": "Serverless apps", "type": "Hosting", "gcp": "Firebase App Hosting", "description": "Streamline the development and deployment of dynamic Next.js and Angular applications, offering built-in framework support, GitHub integration, and integration with other Firebase products like Firebase Authentication, Firestore, and Vertex AI in Firebase.", "aws": "AWS Amplify Hosting", "azure": "GitHub Pages, Static Web Apps", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 202, "category": "Serverless apps", "type": "Database", "gcp": "Firebase Data Connect", "description": "Store and query data with secure, serverless GraphQL APIs to build and scale your app using a fully-managed PostgreSQL database powered by Cloud SQL.", "aws": "AWS AppSync", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 203, "category": "Developer tools", "type": "Client development IDE plugin", "gcp": "Cloud Code for Cloud Shell", "description": "Write, debug, and deploy your cloud-based application for Cloud Shell Editor.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 204, "category": "Developer tools", "type": "Development environment", "gcp": "Cloud Workstations", "description": "A fully customizable, managed development environment with built-in security that is provisioned in your VPC network on Google Cloud.", "aws": "AWS Cloud9", "azure": "GitHub Codespaces", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 205, "category": "Container Services", "type": "Cluster management", "gcp": "GKE Autopilot", "description": "A mode of operation that lets Google manage your cluster configuration, including your nodes, scaling, security, and other preconfigured settings.", "aws": "AWS Fargate with Amazon EKS", "azure": "Azure AKS Automatic", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 206, "category": "Generative AI services", "type": "Image generation", "gcp": "Imagen", "description": "Build next-generation AI products that transform your user's imagination into high-quality visual assets using generative AI.", "aws": "Amazon Titan", "azure": "Azure OpenAI Service", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 207, "category": "Generative AI services", "type": "Video generation", "gcp": "Veo", "description": "Generate high-quality resolution videos in a wide range of cinematic and visual styles.", "aws": "", "azure": "Azure OpenAI Service", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 208, "category": "Generative AI services", "type": "Music generation", "gcp": "Lyria", "description": "Generate high-quality music with instrumentals and vocals, perform transformation and continuation tasks, and have nuanced control of the output's style and performance.", "aws": "", "azure": "Azure OpenAI Service", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 209, "category": "Compute", "type": "Machine series", "gcp": "Memory-optimized machine family", "description": "The most compute and memory resources of the Compute Engine machine family with up to 32 TB memory and 99.95% reliability SLA.", "aws": "Amazon EC2 High Memory U7i Instances", "azure": "Azure M-series Mv3 family", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 210, "category": "Compute", "type": "Data framework", "gcp": "Google Cloud Cortex Framework", "description": "A foundation with packaged solution content to help you get started quickly with Data Cloud.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 211, "category": "Artificial intelligence & machine learning", "type": "Anti-money laundering assistance", "gcp": "Anti Money Laundering AI (AML AI)", "description": "An API that scores AML risk. Use it to identify more risk, more defensibly, with fewer false positives and reduced time during reviews.", "aws": "Amazon Fraud Detector", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 212, "category": "Container Services", "type": "Cluster management", "gcp": "Connect", "description": "Connect to Kubernetes clusters within your fleet, whether they reside in Google Cloud or other environments, even if they are not publicly accessible over the internet. The connect gateway lets you securely access and manage these clusters by providing consistent authentication and authorization mechanisms, regardless of their location.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 213, "category": "Container Services", "type": "Cluster management", "gcp": "Fleets", "description": "A GKE fleet is a way to group together multiple Kubernetes clusters, whether they're on Google Cloud or not, so that you can manage them as one unit. Fleets helps to simplify management activies such as applying consistent configurations, enforcing security policies, and monitoring your workloads across all your clusters.", "aws": "", "azure": "Azure Kubernetes Fleet Manager", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 214, "category": "Container Services", "type": "Cluster management", "gcp": "Fleet team management", "description": "Lets you define the subsets of resources (clusters and namespaces) within a fleet and assign them to specific teams. This management provides granular control over what teams can access and how teams can manage different parts of the fleet, enhancing security and organizational efficiency.", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 215, "category": "Artificial intelligence & machine learning", "type": "Customer support assistance", "gcp": "Agent Assist", "description": "Machine learning technology that provides suggestions to your human agents when they are in a conversation with a customer.", "aws": "Amazon Q in Connect", "azure": "Dynamics 365 Contact Center", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 216, "category": "Container Services", "type": "Security & Identity", "gcp": "Policy Controller", "description": "Enable the application and enforcement of programmable policies for your GKE clusters.", "aws": "", "azure": "Azure Policy for Kubernetes", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 217, "category": "Container Services", "type": "Security & Identity", "gcp": "Custom organization policy for GKE", "description": "Create custom constraints for the Cluster or NodePool resources in GKE.", "aws": "", "azure": "Azure Policy for Kubernetes", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 218, "category": "Migration", "type": "Data warehouse migration", "gcp": "BigQuery Migration Service", "description": "A comprehensive solution for migrating your data warehouse to BigQuery.", "aws": "AWS Schema Conversion Tool", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 219, "category": "Data analytics", "type": "Metadata processing", "gcp": "Dataproc Metastore", "description": "A fully managed Apache Hive metastore (HMS) that runs on Google Cloud.", "aws": "AWS Glue Catalog", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 220, "category": "Cloud services", "type": "Compliance and data sovereignty", "gcp": "Sovereign Controls by Partners", "description": "Provide data sovereignty controls for Google Cloud workloads, operated by partners", "aws": "AWS European Sovereign Cloud", "azure": "Microsoft Cloud for Sovereignty", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 221, "category": "Cloud services", "type": "Compliance and data sovereignty", "gcp": "Sovereign Controls for EU", "description": "Provide data sovereignty controls for Google Cloud workloads in the European Union (EU).", "aws": "AWS European Sovereign Cloud", "azure": "Microsoft Cloud for Sovereignty", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 222, "category": "Cloud services", "type": "Compliance and data sovereignty", "gcp": "Sovereign Controls for Kingdom of Saudi Arabia", "description": "Provide data sovereignty controls for Google Cloud workloads in the Kingdom of Saudi Arabia (KSA).", "aws": "", "azure": "", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}, {"id": 223, "category": "Management tools", "type": "Application development", "gcp": "Application Design Center", "description": "Design and share deployable application architectures.", "aws": "App Studio, Application Composer", "azure": "AI Prompt Flow, Bot Framework Composer, Developer CLI", "source": "https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison", "updated": "2026-04-23 UTC"}];
+    const rowsEl = document.getElementById('rows');
+    const searchInput = document.getElementById('searchInput');
+    const categorySelect = document.getElementById('categorySelect');
+    const typeSelect = document.getElementById('typeSelect');
+    const countPill = document.getElementById('countPill');
+    const totalRows = document.getElementById('totalRows');
+    const updatedAt = document.getElementById('updatedAt');
+    const awsOnlyBtn = document.getElementById('awsOnlyBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const startCompare = document.getElementById('startCompare');
+    let onlyAws = false;
+
+    function splitItems(value) {
+      if (!value) return [];
+      return value.split(',').map(v => v.trim()).filter(Boolean);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function badgeList(items, kind) {
+      if (!items.length) return '<span class="empty">No direct match listed</span>';
+      return '<div class="badges">' + items.map(item => `<span class="badge ${kind}">${escapeHtml(item)}</span>`).join('') + '</div>';
+    }
+
+    function populateFilters() {
+      const categories = [...new Set(DATA.map(r => r.category).filter(Boolean))].sort((a,b) => a.localeCompare(b));
+      const types = [...new Set(DATA.map(r => r.type).filter(Boolean))].sort((a,b) => a.localeCompare(b));
+      categorySelect.innerHTML = '<option value="">كل التصنيفات</option>' + categories.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
+      typeSelect.innerHTML = '<option value="">كل الأنواع</option>' + types.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
+    }
+
+    function render() {
+      const q = searchInput.value.trim().toLowerCase();
+      const category = categorySelect.value;
+      const type = typeSelect.value;
+      const filtered = DATA.filter(row => {
+        if (onlyAws && !row.aws.trim()) return false;
+        if (category && row.category !== category) return false;
+        if (type && row.type !== type) return false;
+        if (!q) return true;
+        const haystack = [row.category, row.type, row.gcp, row.aws, row.description].join(' ').toLowerCase();
+        return haystack.includes(q);
+      });
+
+      countPill.textContent = `${filtered.length} / ${DATA.length} خدمة`;
+      rowsEl.innerHTML = filtered.map(row => `
+        <tr>
+          <td class="muted">${escapeHtml(row.category || '')}</td>
+          <td class="muted">${escapeHtml(row.type || '')}</td>
+          <td>${badgeList(splitItems(row.aws), 'aws')}</td>
+          <td>${badgeList(splitItems(row.gcp), 'gcp')}</td>
+          <td><div class="desc-cell">${escapeHtml(row.description || '')}</div></td>
+        </tr>
+      `).join('') || '<tr><td colspan="5" style="padding:30px; text-align:center; color: var(--muted);">ما فيه نتائج مطابقة للفلاتر الحالية.</td></tr>';
+    }
+
+    awsOnlyBtn.addEventListener('click', () => {
+      onlyAws = !onlyAws;
+      awsOnlyBtn.classList.toggle('is-active', onlyAws);
+      render();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      categorySelect.value = '';
+      typeSelect.value = '';
+      onlyAws = false;
+      awsOnlyBtn.classList.remove('is-active');
+      render();
+    });
+
+    [searchInput, categorySelect, typeSelect].forEach(el => el.addEventListener(el.tagName === 'INPUT' ? 'input' : 'change', render));
+    startCompare.addEventListener('click', () => document.getElementById('compareArea').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+
+    totalRows.textContent = DATA.length.toLocaleString();
+    updatedAt.textContent = DATA[0]?.updated || '—';
+    populateFilters();
+    render();
+  </script>
 </body>
 </html>
