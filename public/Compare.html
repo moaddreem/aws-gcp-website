@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS ↔ Google Cloud Comparison</title>
+  <meta name="description" content="Interactive AWS and Google Cloud comparison section for embedding into a website." />
+  <style>
+    :root {
+      --bg-1: #04111f;
+      --bg-2: #071829;
+      --bg-3: #0b2240;
+      --text: #eef6ff;
+      --muted: #9eb1cd;
+      --muted-2: #7e92af;
+      --border: rgba(255,255,255,.12);
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.09);
+      --aws: #ff9900;
+      --aws-soft: rgba(255,153,0,.15);
+      --gcp: #4285f4;
+      --gcp-soft: rgba(66,133,244,.16);
+      --green: #34a853;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --shadow: 0 24px 80px rgba(0,0,0,.32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 7% 10%, rgba(255,153,0,.18), transparent 24%),
+        radial-gradient(circle at 93% 8%, rgba(66,133,244,.22), transparent 28%),
+        radial-gradient(circle at 50% 120%, rgba(66,133,244,.16), transparent 32%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 42%, var(--bg-1) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--aws), var(--gcp));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .provider-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .provider-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .provider-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .provider-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .aws-icon { background: var(--aws); }
+    .gcp-icon { background: var(--gcp); }
+
+    .provider-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .feature-item:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: white;
+    }
+
+    .aws-feature { background: var(--aws-soft); color: var(--aws); }
+    .gcp-feature { background: var(--gcp-soft); color: var(--gcp); }
+
+    .comparison-table {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .table-header {
+      background: var(--panel-2);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .table-row:last-child {
+      border-bottom: none;
+    }
+
+    .table-row:hover {
+      background: var(--panel-2);
+    }
+
+    .service-name {
+      font-weight: 500;
+    }
+
+    .aws-service, .gcp-service {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .aws-service {
+      background: var(--aws-soft);
+      color: var(--aws);
+    }
+
+    .gcp-service {
+      background: var(--gcp-soft);
+      color: var(--gcp);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .comparison-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .header h1 { font-size: 2rem; }
+      .table-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .table-row > div { padding: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>AWS ↔ Google Cloud Comparison</h1>
+      <p>Compare services and features between Amazon Web Services and Google Cloud Platform</p>
+    </header>
+
+    <div class="comparison-grid">
+      <div class="provider-card">
+        <div class="provider-header">
+          <div class="provider-icon aws-icon">AWS</div>
+          <h2 class="provider-name">Amazon Web Services</h2>
+        </div>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon aws-feature">✓</div>
+            <span>Largest cloud provider by market share</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon aws-feature">✓</div>
+            <span>Most comprehensive service portfolio</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon aws-feature">✓</div>
+            <span>Mature ecosystem with extensive documentation</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon aws-feature">✓</div>
+            <span>Pay-as-you-go pricing model</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="provider-card">
+        <div class="provider-header">
+          <div class="provider-icon gcp-icon">GCP</div>
+          <h2 class="provider-name">Google Cloud Platform</h2>
+        </div>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon gcp-feature">✓</div>
+            <span>Strong in AI/ML and data analytics</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon gcp-feature">✓</div>
+            <span>Competitive pricing with sustained use discounts</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon gcp-feature">✓</div>
+            <span>Excellent networking performance</span>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon gcp-feature">✓</div>
+            <span>Modern infrastructure with global fiber network</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="comparison-table">
+      <div class="table-header">Service Comparison</div>
+      
+      <div class="table-row">
+        <div class="service-name">Virtual Machines</div>
+        <div class="aws-service">EC2</div>
+        <div class="gcp-service">Compute Engine</div>
+      </div>
+
+      <div class="table-row">
+        <div class="service-name">Storage</div>
+        <div class="aws-service">S3</div>
+        <div class="gcp-service">Cloud Storage</div>
+      </div>
+
+      <div class="table-row">
+        <div class="service-name">Databases</div>
+        <div class="aws-service">RDS</div>
+        <div class="gcp-service">Cloud SQL</div>
+      </div>
+
+      <div class="table-row">
+        <div class="service-name">Containers</div>
+        <div class="aws-service">ECS/EKS</div>
+        <div class="gcp-service">GKE</div>
+      </div>
+
+      <div class="table-row">
+        <div class="service-name">Serverless</div>
+        <div class="aws-service">Lambda</div>
+        <div class="gcp-service">Cloud Functions</div>
+      </div>
+
+      <div class="table-row">
+        <div class="service-name">CDN</div>
+        <div class="aws-service">CloudFront</div>
+        <div class="gcp-service">Cloud CDN</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
