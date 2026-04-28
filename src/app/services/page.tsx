@@ -192,6 +192,57 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Premium CTA Block */}
+      <section className="section-container py-8">
+        <div 
+          className="relative rounded-2xl p-6 md:p-8 overflow-hidden transition-all hover:scale-[1.01] cursor-pointer group"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,153,0,0.08) 0%, rgba(66,133,244,0.08) 50%, rgba(255,153,0,0.04) 100%)',
+            border: '1px solid rgba(255,153,0,0.2)',
+          }}
+          onClick={() => window.location.href = '/Compare.html'}
+        >
+          {/* Background gradient effects */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-start">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-75"></div>
+                <span className="text-sm font-medium px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90">
+                  مقارنة شاملة
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">
+                قارن خدمات AWS مع Google Cloud
+              </h2>
+              <p className="text-white/80 max-w-lg">
+                استكشف مقارنة تفصيلية بين خدمات أمازون وقوقل كلاود مع بيانات حديثة وتحليل شامل للمساعدة في اتخاذ القرار المناسب.
+              </p>
+            </div>
+            
+            <button className="group/btn relative px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              style={{
+                background: 'linear-gradient(135deg, #ff9900 0%, #4285f4 100%)',
+                boxShadow: '0 4px 20px rgba(255,153,0,0.3), 0 4px 20px rgba(66,133,244,0.3)'
+              }}
+            >
+              <span className="relative z-10 text-white flex items-center gap-2">
+                ابدأ المقارنة
+                <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
       <div className="section-container py-12">
         {!selectedCategory ? (
           <>
